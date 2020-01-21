@@ -10,7 +10,19 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Text("Chef")
+                .font(.largeTitle)
+                .padding()
+            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Text("Find a new Recipe")
+                .padding()
+            }
+            Button(action: {}) {
+                Text("History")
+                .padding()
+            }
+        }
     }
     
 }
