@@ -32,7 +32,7 @@ struct RecipeView: View {
                                 /*@END_MENU_TOKEN@*/)
                     }
                 }
-                Image("Omelette")
+                Image("SecondOmelette")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)

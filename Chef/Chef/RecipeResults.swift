@@ -32,7 +32,7 @@ struct ResultsView: View {
                         .fontWeight(.light)
                     }.padding()
                     Spacer()
-                    Image("omelette")
+                    Image("SecondOmelette")
                         .resizable()
                         .clipShape(Circle())
                         .multilineTextAlignment(.trailing)
