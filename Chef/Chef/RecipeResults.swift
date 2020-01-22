@@ -66,7 +66,7 @@ struct ResultsView: View {
                         .multilineTextAlignment(.trailing)
                         .frame(width:100, height: 100)
                 }
-        }.background(/*@START_MENU_TOKEN@*/Color.yellow/*@END_MENU_TOKEN@*/)
+            }.navigationBarTitle("Recipes")
             
     }
 }
