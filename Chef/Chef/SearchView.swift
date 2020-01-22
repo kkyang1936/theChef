@@ -24,34 +24,44 @@ struct SearchField: View{
 
 
 struct SearchView: View {
-    @State private var ingredients = ["Eggs", "Other"]
+    @State private var ingredients = ["Eggs", "Butter", "Onion"]
     @State private var ingredientTxt = ""
     var body: some View {
         VStack {
             SearchField()
-            Image("Eggs-in-a-carton")
-            .resizable()
-                .aspectRatio(contentMode: .fill)
-            Text("Ingredient Search")
-                .font(.headline)
-            List {
-                HStack {
-                    TextField("Manually enter an ingredient...", text: $ingredientTxt)
-                    Image(systemName: "add")
-                }
-                ForEach(ingredients, id: \.self) { ingredient in
-                    Text(ingredient)
-                }.onDelete(perform: self.delete)
+            ZStack {
+                Image("Eggs-in-a-carton")
+                .resizable()
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: Alignment.topLeading)
+                    .aspectRatio(contentMode: ContentMode.fill)
+                    .frame(width: 10)
+                VStack {
+                    Spacer()
+                    VStack {
+                        Text("Ingredient Search")
+                            .font(.headline)
+                            .padding(.top)
+                        List {
+                            HStack {
+                                TextField("Manually enter an ingredient...", text: $ingredientTxt)
+                                Image(systemName: "add")
+                            }
+                            ForEach(ingredients, id: \.self) { ingredient in
+                                Text(ingredient)
+                            }.onDelete(perform: self.delete)
+                        }
+                        HStack {
+                            Spacer()
+                            Button(action: {}) {
+                                Text("Search >")
+                                    .padding([.leading, .bottom, .trailing])
+                            
+                            }
+                        }
+                        }.frame(height: 300).background(BlurCard())
+                }.edgesIgnoringSafeArea(.bottom)
             }
-            HStack {
-                Spacer()
-                Button(action: {}) {
-                    Text("Search >")
-                        .padding([.leading, .bottom, .trailing])
-                
-                }
-            }
-        }
+        }.navigationBarTitle("Recipe Search")
     }
     func delete(at indexSet: IndexSet) {
         self.ingredients.remove(atOffsets: indexSet)
