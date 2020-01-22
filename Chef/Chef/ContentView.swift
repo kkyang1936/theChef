@@ -11,10 +11,11 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
+            Spacer()
             Text("Chef")
                 .font(.largeTitle)
                 .padding()
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+            Button(action: {}) {
                 Text("Find a new Recipe")
                 .padding()
             }
@@ -22,6 +23,13 @@ struct ContentView: View {
                 Text("History")
                 .padding()
             }
+            Spacer()
+            Button(action: {}) {
+                Image("Hat-icon")
+                .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100)
+            }.padding()
         }
     }
     
