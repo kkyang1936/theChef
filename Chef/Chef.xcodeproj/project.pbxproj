@@ -14,6 +14,7 @@
 		282CF1EA23D7BE7B003B83AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282CF1E923D7BE7B003B83AC /* Preview Assets.xcassets */; };
 		282CF1ED23D7BE7B003B83AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 282CF1EB23D7BE7B003B83AC /* LaunchScreen.storyboard */; };
 		9604BBC423D8E56B002018E1 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9604BBC323D8E56B002018E1 /* SearchView.swift */; };
+		F708E37E23D8F00F0020901D /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F708E37D23D8F00E0020901D /* RecipeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		282CF1EC23D7BE7B003B83AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		282CF1EE23D7BE7B003B83AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9604BBC323D8E56B002018E1 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		F708E37D23D8F00E0020901D /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		282CF1DF23D7BE79003B83AC /* Chef */ = {
 			isa = PBXGroup;
 			children = (
+				F708E37D23D8F00E0020901D /* RecipeView.swift */,
 				282CF1E023D7BE79003B83AC /* AppDelegate.swift */,
 				282CF1E223D7BE79003B83AC /* SceneDelegate.swift */,
 				282CF1E423D7BE79003B83AC /* MainView.swift */,
@@ -153,6 +156,7 @@
 				282CF1E123D7BE79003B83AC /* AppDelegate.swift in Sources */,
 				282CF1E323D7BE79003B83AC /* SceneDelegate.swift in Sources */,
 				282CF1E523D7BE79003B83AC /* MainView.swift in Sources */,
+				F708E37E23D8F00F0020901D /* RecipeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
