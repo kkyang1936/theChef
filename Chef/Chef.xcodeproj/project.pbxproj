@@ -61,11 +61,11 @@
 				282CF1E023D7BE79003B83AC /* AppDelegate.swift */,
 				282CF1E223D7BE79003B83AC /* SceneDelegate.swift */,
 				282CF1E423D7BE79003B83AC /* MainView.swift */,
+				9604BBC323D8E56B002018E1 /* SearchView.swift */,
 				282CF1E623D7BE7B003B83AC /* Assets.xcassets */,
 				282CF1EB23D7BE7B003B83AC /* LaunchScreen.storyboard */,
 				282CF1EE23D7BE7B003B83AC /* Info.plist */,
 				282CF1E823D7BE7B003B83AC /* Preview Content */,
-				9604BBC323D8E56B002018E1 /* SearchView.swift */,
 			);
 			path = Chef;
 			sourceTree = "<group>";
