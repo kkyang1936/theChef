@@ -58,7 +58,7 @@ struct SearchView: View {
                             
                             }
                         }
-                        }.frame(height: 300).background(BlurCard())
+                        }.frame(height: 420).background(BlurCard())
                 }.edgesIgnoringSafeArea(.bottom)
             }
         }.navigationBarTitle("Recipe Search")
