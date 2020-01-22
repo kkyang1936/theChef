@@ -72,7 +72,7 @@ struct ResultsView: View {
 }
 
 
-struct ResultsView_Previews: PreviewProvider {
+struct ResultsView_Preview: PreviewProvider {
     static var previews: some View {
         ResultsView()
     }
