@@ -32,7 +32,6 @@ struct SearchView: View {
             Image("Eggs-in-a-carton")
             .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 0)
             Text("Ingredient Search")
                 .font(.headline)
             List {
@@ -47,7 +46,9 @@ struct SearchView: View {
             HStack {
                 Spacer()
                 Button(action: {}) {
-                    Text("Search")
+                    Text("Search >")
+                        .padding([.leading, .bottom, .trailing])
+                
                 }
             }
         }
