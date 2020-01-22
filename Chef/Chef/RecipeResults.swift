@@ -26,9 +26,14 @@ struct ResultsView: View {
     var body: some View {
         List {
                 HStack() {
-                    Text("Omelette")
+                    NavigationLink(destination: SearchView()) {
+                        Text("Omelette")
+                        
                         .font(.largeTitle)
-                        .fontWeight(.light)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.black)
+                    
+                    }.padding()
                     Spacer()
                     Image("omelette")
                         .resizable()

@@ -46,6 +46,7 @@ struct SearchView: View {
             }
             HStack {
                 Spacer()
+                
                 Button(action: {}) {
                     Text("Search")
                 }
