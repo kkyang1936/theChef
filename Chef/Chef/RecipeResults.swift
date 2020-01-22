@@ -28,11 +28,8 @@ struct ResultsView: View {
                 HStack() {
                     NavigationLink(destination: ContentView()) {
                         Text("Omelette")
-                        
-                        .font(.largeTitle)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.black)
-                    
+                            .font(.largeTitle)
+                        .fontWeight(.light)
                     }.padding()
                     Spacer()
                     Image("omelette")
@@ -42,9 +39,13 @@ struct ResultsView: View {
                         .frame(width:100, height: 100)
                 }
                 HStack() {
-                    Text("Eggs Benedict")
-                        .font(.largeTitle)
+                    NavigationLink(destination: ContentView()) {
+                        Text("Eggs Benedict")
+                            .font(.largeTitle)
                         .fontWeight(.light)
+                        }
+                        .isDetailLink(false)
+                        .padding()
                     Spacer()
                     Image("eggs_benedict")
                         .resizable()
@@ -53,9 +54,11 @@ struct ResultsView: View {
                         .frame(width:100, height: 100)
                 }
                 HStack() {
-                    Text("Scrambled Eggs")
-                        .font(.largeTitle)
+                    NavigationLink(destination: ContentView()) {
+                        Text("Scrambled Eggs")
+                            .font(.largeTitle)
                         .fontWeight(.light)
+                    }.padding()
                     Spacer()
                     Image("scrambled_eggs")
                         .resizable()
