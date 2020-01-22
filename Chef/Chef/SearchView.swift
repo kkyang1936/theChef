@@ -44,13 +44,9 @@ struct SearchView: View {
                 }.onDelete(perform: self.delete)
             }
             HStack {
-                Spacer()
-                
-                Button(action: {}) {
-                    Text("Search >")
-                        .padding([.leading, .bottom, .trailing])
-                
-                }
+                NavigationLink(destination: ResultsView()) {
+                        Text("Search >")
+                }.padding()
             }
         }
     }

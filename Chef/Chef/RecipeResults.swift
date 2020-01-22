@@ -26,7 +26,7 @@ struct ResultsView: View {
     var body: some View {
         List {
                 HStack() {
-                    NavigationLink(destination: SearchView()) {
+                    NavigationLink(destination: ContentView()) {
                         Text("Omelette")
                         
                         .font(.largeTitle)
