@@ -32,7 +32,6 @@ struct SearchView: View {
             Image("Eggs-in-a-carton")
             .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 0)
             Text("Ingredient Search")
                 .font(.headline)
             List {
@@ -45,10 +44,9 @@ struct SearchView: View {
                 }.onDelete(perform: self.delete)
             }
             HStack {
-                Spacer()
-                Button(action: {}) {
-                    Text("Search")
-                }
+                NavigationLink(destination: ResultsView()) {
+                        Text("Search >")
+                }.padding()
             }
         }
     }
