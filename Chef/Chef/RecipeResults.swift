@@ -26,13 +26,13 @@ struct ResultsView: View {
     var body: some View {
         List {
                 HStack() {
-                    NavigationLink(destination: ContentView()) {
+                    NavigationLink(destination: RecipeView()) {
                         Text("Omelette")
                             .font(.largeTitle)
                         .fontWeight(.light)
                     }.padding()
                     Spacer()
-                    Image("SecondOmelette")
+                    Image("omelette")
                         .resizable()
                         .clipShape(Circle())
                         .multilineTextAlignment(.trailing)
