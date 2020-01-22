@@ -8,20 +8,42 @@
 
 import SwiftUI
 
+struct BlurCard: UIViewRepresentable {
+    var style: UIBlurEffect.Style = .systemThinMaterial
+    func makeUIView(context: Context) -> UIVisualEffectView {
+        return UIVisualEffectView(effect: UIBlurEffect(style: style))
+    }
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
+        uiView.effect = UIBlurEffect(style: style)
+    }
+}
+
 struct ContentView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("Chef")
-                .font(.largeTitle)
-                .padding()
-            Button(action: {}) {
-                Text("Find a new Recipe")
-                .padding()
-            }
-            Button(action: {}) {
-                Text("History")
-                .padding()
+            ZStack {
+                BlurCard()
+                    .frame(width: 280, height: 250)
+                    .cornerRadius(20)
+                VStack {
+                    Text("Chef")
+                        .font(.largeTitle)
+                        .offset(y: -10)
+                    Button(action: {}) {
+                        Text("Find a new Recipe")
+                            .frame(width: 200)
+                            .padding()
+                            .background(Color.white).cornerRadius(10)
+                        .overlay(RoundedRectangle(cornerRadius: 10).stroke())
+                    }.padding()
+                    Button(action: {}) {
+                        Text("History")
+                            .frame(width: 200)
+                            .padding().background(Color.white).cornerRadius(10)
+                            .overlay(RoundedRectangle(cornerRadius: 10).stroke())
+                    }
+                }.padding()
             }
             Spacer()
             Button(action: {}) {
@@ -31,6 +53,7 @@ struct ContentView: View {
                     .frame(width: 100)
             }.padding()
         }
+    .background(Image("FoodBackground"))
     }
     
 }
