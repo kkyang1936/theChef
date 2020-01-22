@@ -51,7 +51,10 @@ struct ContentView: View {
                 .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 100)
-            }.padding()
+                .padding()
+                .background(BlurCard())
+                .cornerRadius(15)
+                }.padding()
         }
     .background(Image("FoodBackground"))
     }
