@@ -15,7 +15,6 @@ struct SearchField: View{
             Image(systemName: "magnifyingglass")
             TextField("Search Recipes", text: $searchText)
                 .frame(width: 320, height: 35)
-                
                 .background(Color.init( red: 0.9, green: 0.9, blue: 0.9, opacity: 1))
             .cornerRadius(5)
         }
@@ -29,7 +28,17 @@ struct SearchView: View {
             Image("Eggs-in-a-carton")
             .resizable()
                 .aspectRatio(contentMode: .fill)
-            
+                .frame(width: 0)
+            List {
+                Text("Hello World")
+                Text("1")
+                Text("2")
+                Text("3")
+                Text("4")
+                Text("5")
+                Text("6")
+                Text("7")
+            }
         }
     }
 }
