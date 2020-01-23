@@ -22,7 +22,7 @@ struct SearchField: View{
 }
     
 struct SearchView: View {
-    @State private var ingredients = ["Eggs", "Butter", "Onion"]
+    @State private var ingredients = ["Eggs", "Butter", "Cheese"]
     @State private var ingredientTxt = ""
     func deleteIngredient(at indexSet: IndexSet) {
         self.ingredients.remove(atOffsets: indexSet)
