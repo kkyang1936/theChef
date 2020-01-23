@@ -20,12 +20,13 @@ struct SearchField: View{
         }
     }
 }
-
-
-
+    
 struct SearchView: View {
     @State private var ingredients = ["Eggs", "Butter", "Onion"]
     @State private var ingredientTxt = ""
+    func deleteIngredient(at indexSet: IndexSet) {
+        self.ingredients.remove(atOffsets: indexSet)
+    }
     var body: some View {
         VStack {
             SearchField()
@@ -33,7 +34,7 @@ struct SearchView: View {
                 Image("Eggs-in-a-carton")
                 .resizable()
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: Alignment.topLeading)
-                    .aspectRatio(contentMode: ContentMode.fill)
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 10)
                 VStack {
                     Spacer()
@@ -42,33 +43,26 @@ struct SearchView: View {
                             .font(.headline)
                             .padding(.top)
                         List {
-                            HStack {
-                                TextField("Manually enter an ingredient...", text: $ingredientTxt)
-                                Image(systemName: "add")
-                            }
+                            TextField("Manually enter an ingredient...", text: $ingredientTxt)
                             ForEach(ingredients, id: \.self) { ingredient in
                                 Text(ingredient)
-                            }.onDelete(perform: self.delete)
+                            }.onDelete(perform: self.deleteIngredient)
                         }
                         HStack {
                             Spacer()
-                            Button(action: {}) {
+                            NavigationLink(destination: ResultsView()) {
                                 Text("Search >")
-                                    .padding([.leading, .bottom, .trailing])
-                            
+                                    .foregroundColor(Color.blue)
+                                    .padding([.leading, .trailing, .bottom])
                             }
                         }
-                        }.frame(height: 420).background(BlurCard())
+                    }.frame(height: 420).background(BlurCard())
                 }.edgesIgnoringSafeArea(.bottom)
             }
-        }.navigationBarTitle("Recipe Search")
+        }.navigationBarTitle("Find a Recipe")
     }
-    func delete(at indexSet: IndexSet) {
-        self.ingredients.remove(atOffsets: indexSet)
-    }
-
-    
 }
+    
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView()
