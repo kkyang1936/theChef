@@ -1,0 +1,556 @@
+{
+  "intents": [
+    {
+      "intent": "next_step",
+      "examples": [
+        {
+          "text": "Chef, what is the next step in the recipe?"
+        },
+        {
+          "text": "what's the next step"
+        },
+        {
+          "text": "I want to know the next step in the recipe"
+        },
+        {
+          "text": "Please tell me the next step in the recipe"
+        },
+        {
+          "text": "Chef, which step is next?"
+        },
+        {
+          "text": "what's the next step?"
+        },
+        {
+          "text": "Chef, please tell me the next step"
+        },
+        {
+          "text": "Chef, please tell me the next step in the recipe"
+        },
+        {
+          "text": "What is the next step?"
+        }
+      ],
+      "description": "next step in recipe"
+    },
+    {
+      "intent": "single_ingredient",
+      "examples": [
+        {
+          "text": "Do I need eggs?",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                10,
+                14
+              ]
+            }
+          ]
+        },
+        {
+          "text": "will I need tomatoes",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                12,
+                20
+              ]
+            }
+          ]
+        },
+        {
+          "text": "will I need salmon",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                12,
+                18
+              ]
+            }
+          ]
+        },
+        {
+          "text": "should I get lettuce for this recipe",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                13,
+                20
+              ]
+            }
+          ]
+        },
+        {
+          "text": "should I get butter for this recipe",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                13,
+                19
+              ]
+            }
+          ]
+        },
+        {
+          "text": "is beef required for this recipe",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                3,
+                7
+              ]
+            }
+          ]
+        },
+        {
+          "text": "do I need milk for this recipe?",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                10,
+                14
+              ]
+            }
+          ]
+        },
+        {
+          "text": "do I need asparagus for this recipe",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                10,
+                19
+              ]
+            }
+          ]
+        }
+      ],
+      "description": "ask chef if you need a certain ingredient"
+    },
+    {
+      "intent": "ingredients",
+      "examples": [
+        {
+          "text": "what foods do I need"
+        },
+        {
+          "text": "chef, what ingred"
+        },
+        {
+          "text": "what ingredients are in the recipe"
+        },
+        {
+          "text": "what ingredients do I need for this recipe"
+        },
+        {
+          "text": "what things go into this recipe"
+        },
+        {
+          "text": "what foods are required for this recipe"
+        },
+        {
+          "text": "what do I need for this recipe"
+        },
+        {
+          "text": "what ingredients do I need"
+        }
+      ],
+      "description": "tells the user the ingredients of the recipe"
+    },
+    {
+      "intent": "Ingredient_Quantity",
+      "examples": [
+        {
+          "text": "How much salt is required?",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                9,
+                13
+              ]
+            }
+          ]
+        },
+        {
+          "text": "How many eggs I need?",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                9,
+                13
+              ]
+            }
+          ]
+        },
+        {
+          "text": "How much beef I need to put in?",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                9,
+                13
+              ]
+            }
+          ]
+        },
+        {
+          "text": "How much lettuce I need?",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                9,
+                16
+              ]
+            }
+          ]
+        },
+        {
+          "text": "How many potatoes I need to use?",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                9,
+                17
+              ]
+            }
+          ]
+        },
+        {
+          "text": "How much sugar should I add?",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                9,
+                14
+              ]
+            }
+          ]
+        },
+        {
+          "text": "How many yams will I need?",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                9,
+                13
+              ]
+            }
+          ]
+        },
+        {
+          "text": "How much milk I need?",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                9,
+                13
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Are we using bell peppers?",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                13,
+                25
+              ]
+            }
+          ]
+        }
+      ],
+      "description": "Ask for quantity needed for the recipe"
+    },
+    {
+      "intent": "first_step",
+      "examples": [
+        {
+          "text": "how should I begin?"
+        },
+        {
+          "text": "where should I start?"
+        },
+        {
+          "text": "what's the first thing to do?"
+        },
+        {
+          "text": "please let me know the first step in the recipe"
+        },
+        {
+          "text": "please tell me the first step in the recipe"
+        },
+        {
+          "text": "I would like to know the first step"
+        },
+        {
+          "text": "hello, what is the first step in the recipe?"
+        },
+        {
+          "text": "chef, can you tell me the first step?"
+        },
+        {
+          "text": "what is the first step in the recipe?"
+        },
+        {
+          "text": "what should I do first?"
+        }
+      ],
+      "description": "tells the user the first step in the recipe"
+    },
+    {
+      "intent": "previous_step",
+      "examples": [
+        {
+          "text": "what was before"
+        },
+        {
+          "text": "can you go back to the last step"
+        },
+        {
+          "text": "what was the previous step"
+        },
+        {
+          "text": "chef, can you say the last step again?"
+        },
+        {
+          "text": "can you tell me that last step again?"
+        },
+        {
+          "text": "chef, can you repeat that last step"
+        },
+        {
+          "text": "what was that last step again?"
+        },
+        {
+          "text": "I forgot the last step. can you tell me it again?"
+        }
+      ],
+      "description": "tells the previous step"
+    },
+    {
+      "intent": "last_step",
+      "examples": [
+        {
+          "text": "tell me the last step"
+        },
+        {
+          "text": "please tell me what to do last"
+        },
+        {
+          "text": "chef, what is the last step?"
+        },
+        {
+          "text": "how do I finish the recipe"
+        },
+        {
+          "text": "chef, please tell me what to do lastly"
+        },
+        {
+          "text": "what is the last thing to do in this recipe"
+        },
+        {
+          "text": "what is the final step in the recipe"
+        },
+        {
+          "text": "tell me the final step"
+        },
+        {
+          "text": "what is the last step in the recipe"
+        }
+      ],
+      "description": "tells the user the last step in the recipe"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "Ingredients",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "water",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "eggs",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "milk",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "beef",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "lettuce",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "potatoes",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "tomatoes",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "sugar",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "salt",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "butter",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "chicken",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "asparagus",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "salmon",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "yams",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "bell peppers",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_9_1580856526446",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "First Step",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#first_step",
+      "dialog_node": "node_9_1580856526446",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "My first skill",
+  "language": "en",
+  "description": ""
+}
