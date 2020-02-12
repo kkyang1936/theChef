@@ -7,5 +7,6 @@
 
 import Foundation
 
-let scraper = Scraper()
-print(scraper.scrape())
+var scraper = Scraper()
+scraper.scrape()
+print(scraper.getSteps())

@@ -67,6 +67,7 @@
 		282CF1DF23D7BE79003B83AC /* Chef */ = {
 			isa = PBXGroup;
 			children = (
+				B089B2F023ECCEA800DB8C77 /* Scraper */,
 				282CF1EE23D7BE7B003B83AC /* Info.plist */,
 				964E8EA123EA322E00E4D0C6 /* Recipe.swift */,
 				282CF1E023D7BE79003B83AC /* AppDelegate.swift */,
@@ -96,6 +97,13 @@
 				F708E37D23D8F00E0020901D /* RecipeView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B089B2F023ECCEA800DB8C77 /* Scraper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scraper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
