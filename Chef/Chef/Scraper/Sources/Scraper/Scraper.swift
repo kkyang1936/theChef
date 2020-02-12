@@ -4,6 +4,7 @@ import Foundation
 class Scraper {
     public private(set) var ingredients = [String]()
     public private(set) var steps = [String]()
+    public private(set) var imageUrl = String()
     private let urls = ["https://www.allrecipes.com/recipe/262161/chef-johns-lobster-thermidor/", "https://www.allrecipes.com/recipe/17456/golden-rum-cake/?internalSource=hub%20recipe&referringContentType=Search"]
     
     func scrape() {
@@ -17,6 +18,7 @@ class Scraper {
             let doc: Document = try SwiftSoup.parse(html)
             ingredients = getIngredientsStrings(doc: doc)
             steps = getStepsStrings(doc: doc)
+            imageUrl = getImageUrl(doc: doc)
         } catch Exception.Error(let message) {
             print(message)
         } catch {
@@ -70,11 +72,17 @@ class Scraper {
         return stepsStrings
     }
     
-    func getSteps() -> [String] {
-        return steps
-    }
-
-    func getIngredients() -> [String] {
-        return ingredients
+    private func getImageUrl(doc: Document) -> String {
+        var src = String()
+        do {
+            let photoStrip = try doc.select("ul.photo-strip__items")
+            let photo = photoStrip.first()
+            src = try (photo?.select("img").attr("src") ?? "error")
+        } catch Exception.Error(let message) {
+            print(message)
+        } catch {
+            print("Error getting image url")
+        }
+        return src
     }
 }
