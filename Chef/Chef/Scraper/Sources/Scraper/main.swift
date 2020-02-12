@@ -9,5 +9,3 @@ import Foundation
 
 var scraper = Scraper()
 scraper.scrape()
-print(scraper.steps)
-print(scraper.imageUrl)

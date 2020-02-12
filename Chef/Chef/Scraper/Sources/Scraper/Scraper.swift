@@ -5,6 +5,7 @@ class Scraper {
     public private(set) var ingredients = [String]()
     public private(set) var steps = [String]()
     public private(set) var imageUrl = String()
+    public private(set) var name = String()
     private let urls = ["https://www.allrecipes.com/recipe/262161/chef-johns-lobster-thermidor/", "https://www.allrecipes.com/recipe/17456/golden-rum-cake/?internalSource=hub%20recipe&referringContentType=Search"]
     
     func scrape() {
@@ -19,6 +20,7 @@ class Scraper {
             ingredients = getIngredientsStrings(doc: doc)
             steps = getStepsStrings(doc: doc)
             imageUrl = getImageUrl(doc: doc)
+            name = getName(doc: doc)
         } catch Exception.Error(let message) {
             print(message)
         } catch {
@@ -84,5 +86,18 @@ class Scraper {
             print("Error getting image url")
         }
         return src
+    }
+    
+    private func getName(doc: Document) -> String {
+        var name = String()
+        do {
+            let nameElement = try doc.select("h1.recipe-summary__h1")
+            name = try nameElement.text()
+        } catch Exception.Error(let message) {
+            print(message)
+        } catch {
+            print("Error getting name of recipe")
+        }
+        return name
     }
 }
