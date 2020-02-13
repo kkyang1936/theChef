@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Recipe: Hashable, Codable {
     var name: String
-    var imageName: String
+    var imageURL: URL?
     var ingredients: [String]
     var steps: [String]
 }
