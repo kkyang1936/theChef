@@ -17,7 +17,13 @@ struct NetworkImage: View {
         URLImage(url, placeholder: {
             ProgressView($0) { progress in
                 Image("recipe-default-image")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
             }
+        }, content: {
+            $0.image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
         })
     }
 }
