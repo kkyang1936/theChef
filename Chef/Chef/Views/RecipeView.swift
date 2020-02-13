@@ -50,7 +50,7 @@ struct RecipeView: View {
                     .frame(width: 100)
                 
             }
-        }.navigationBarTitle("View Recipe")
+        }.navigationBarTitle("View Recipe", displayMode: .inline)
     }
     
 }
