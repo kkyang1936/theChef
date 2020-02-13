@@ -18,6 +18,7 @@
 		964E8EA223EA322E00E4D0C6 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964E8EA123EA322E00E4D0C6 /* Recipe.swift */; };
 		9662764923F4DC5F00312225 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9662764823F4DC5F00312225 /* URLImage */; };
 		9662764B23F4DD9100312225 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662764A23F4DD9100312225 /* NetworkImage.swift */; };
+		B082F5AD23F5F7140062BF70 /* Scraper in Resources */ = {isa = PBXBuildFile; fileRef = B082F5AC23F5F7140062BF70 /* Scraper */; };
 		F708E37E23D8F00F0020901D /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F708E37D23D8F00E0020901D /* RecipeView.swift */; };
 		F746EEE023D9108400CCAF4F /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = F746EEDF23D9108400CCAF4F /* .gitattributes */; };
 /* End PBXBuildFile section */
@@ -35,6 +36,7 @@
 		9604BBC323D8E56B002018E1 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		964E8EA123EA322E00E4D0C6 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		9662764A23F4DD9100312225 /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
+		B082F5AC23F5F7140062BF70 /* Scraper */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Scraper; sourceTree = SOURCE_ROOT; };
 		F708E37D23D8F00E0020901D /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeView.swift; path = Chef/Views/RecipeView.swift; sourceTree = SOURCE_ROOT; };
 		F746EEDF23D9108400CCAF4F /* .gitattributes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +80,7 @@
 				964E8EA023EA2E6C00E4D0C6 /* Views */,
 				282CF1E623D7BE7B003B83AC /* Assets.xcassets */,
 				282CF1EB23D7BE7B003B83AC /* LaunchScreen.storyboard */,
+				B082F5AC23F5F7140062BF70 /* Scraper */,
 				282CF1E823D7BE7B003B83AC /* Preview Content */,
 			);
 			path = Chef;
@@ -168,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F746EEE023D9108400CCAF4F /* .gitattributes in Resources */,
+				B082F5AD23F5F7140062BF70 /* Scraper in Resources */,
 				282CF1ED23D7BE7B003B83AC /* LaunchScreen.storyboard in Resources */,
 				282CF1EA23D7BE7B003B83AC /* Preview Assets.xcassets in Resources */,
 				282CF1E723D7BE7B003B83AC /* Assets.xcassets in Resources */,
