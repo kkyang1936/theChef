@@ -23,7 +23,7 @@ struct ResultsView: View {
                         .resizable()
                         .clipShape(Circle())
                         .multilineTextAlignment(.trailing)
-                        .frame(width:100, height: 100)
+                        .frame(width:CGFloat(100), height: CGFloat(100))
                 }
                 HStack() {
                     NavigationLink(destination: ContentView()) {
@@ -51,7 +51,7 @@ struct ResultsView: View {
                         .resizable()
                         .clipShape(Circle())
                         .multilineTextAlignment(.trailing)
-                        .frame(width:100, height: 100)
+                        .frame(width:CGFloat(100), height: CGFloat(100))
                 }
             }.navigationBarTitle("Recipes")
             

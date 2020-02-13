@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+<<<<<<< Updated upstream
+=======
+      location = "group:../Chef/Scraper">
+   </FileRef>
+   <FileRef
+>>>>>>> Stashed changes
       location = "self:">
    </FileRef>
 </Workspace>
