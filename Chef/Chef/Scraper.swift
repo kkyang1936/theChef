@@ -1,6 +1,5 @@
 import SwiftSoup
 import Foundation
-import Recipe
 
 class Scraper {
     public private(set) var ingredients = [String]()
@@ -9,7 +8,7 @@ class Scraper {
     public private(set) var name = String()
     private let urls = ["https://www.allrecipes.com/recipe/262161/chef-johns-lobster-thermidor/", "https://www.allrecipes.com/recipe/17456/golden-rum-cake/?internalSource=hub%20recipe&referringContentType=Search"]
     
-    private func scrape(urlString: String) {
+    private func scrape(_ urlString: String) {
         do {
             guard let url = URL(string: urlString) else {
                 print("Error: \(urlString) doesn't seem to be a valid URL")
@@ -103,9 +102,9 @@ class Scraper {
     
     public func getScrapeStruct(url: String) -> Recipe {
         scrape(url)
-        return Recipe(name: [self.name],
-                      imageUrl: [self.imageUrl],
-                      ingredients: [self.ingredients],
-                      steps: [self.steps])
+        return Recipe(name: self.name,
+                      imageURL: URL(string: self.imageUrl),
+                      ingredients: self.ingredients,
+                      steps: self.steps)
     }
 }
