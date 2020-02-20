@@ -51,7 +51,7 @@ struct SearchView: View {
                         }
                         HStack {
                             Spacer()
-                            NavigationLink(destination: ResultsView(searchResults: [scraper.getScrapeStruct(url: "https://www.allrecipes.com/recipe/229780/baked-denver-omelet/?internalSource=hub%20recipe&referringContentType=Search")])) {
+                            NavigationLink(destination: ResultsView(searchResults: [scraper.getScrapeStruct(url: "https://www.allrecipes.com/recipe/229780/baked-denver-omelet/?internalSource=hub%20recipe&referringContentType=Search"), scraper.getScrapeStruct(url: "https://www.allrecipes.com/recipe/24532/sausage-casserole/?internalSource=hub%20recipe&referringContentType=Search")])) {
                                 Text("Search >")
                                     .foregroundColor(Color.blue)
                                     .padding([.leading, .trailing, .bottom])
