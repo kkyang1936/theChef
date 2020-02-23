@@ -20,6 +20,7 @@
 		9662764B23F4DD9100312225 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662764A23F4DD9100312225 /* NetworkImage.swift */; };
 		96E4466923F5FA14000864ED /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 96E4466823F5FA14000864ED /* SwiftSoup */; };
 		96E4466B23F5FA1F000864ED /* Scraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E4466A23F5FA1F000864ED /* Scraper.swift */; };
+		96E769882400123E00DBDF91 /* SearchView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E769872400123E00DBDF91 /* SearchView2.swift */; };
 		B082F5AF23FAF2AD0062BF70 /* RecipeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082F5AE23FAF2AD0062BF70 /* RecipeSearch.swift */; };
 		B082F5B123FB03630062BF70 /* RecipeSearchScraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082F5B023FB03630062BF70 /* RecipeSearchScraper.swift */; };
 		F708E37E23D8F00F0020901D /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F708E37D23D8F00E0020901D /* RecipeView.swift */; };
@@ -40,6 +41,7 @@
 		964E8EA123EA322E00E4D0C6 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		9662764A23F4DD9100312225 /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
 		96E4466A23F5FA1F000864ED /* Scraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scraper.swift; sourceTree = "<group>"; };
+		96E769872400123E00DBDF91 /* SearchView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView2.swift; sourceTree = "<group>"; };
 		B082F5AE23FAF2AD0062BF70 /* RecipeSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearch.swift; sourceTree = "<group>"; };
 		B082F5B023FB03630062BF70 /* RecipeSearchScraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchScraper.swift; sourceTree = "<group>"; };
 		F708E37D23D8F00E0020901D /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeView.swift; path = Chef/Views/RecipeView.swift; sourceTree = SOURCE_ROOT; };
@@ -107,6 +109,7 @@
 			children = (
 				282CF1E423D7BE79003B83AC /* MainView.swift */,
 				9604BBC323D8E56B002018E1 /* SearchView.swift */,
+				96E769872400123E00DBDF91 /* SearchView2.swift */,
 				28F8997423D8F04B00E7C802 /* RecipeResultsView.swift */,
 				F708E37D23D8F00E0020901D /* RecipeView.swift */,
 				9662764A23F4DD9100312225 /* NetworkImage.swift */,
@@ -205,6 +208,7 @@
 				F708E37E23D8F00F0020901D /* RecipeView.swift in Sources */,
 				96E4466B23F5FA1F000864ED /* Scraper.swift in Sources */,
 				B082F5B123FB03630062BF70 /* RecipeSearchScraper.swift in Sources */,
+				96E769882400123E00DBDF91 /* SearchView2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +349,7 @@
 				DEVELOPMENT_TEAM = 6393CCY8T4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Chef/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -365,6 +370,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Chef/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -31,7 +31,8 @@ struct ContentView: View {
                         Text("Chef")
                             .font(.largeTitle)
                             .offset(y: -10)
-                        NavigationLink(destination: SearchView()) {
+                        NavigationLink(destination: /*SearchView()*/
+                            SearchView2()) {
                             Text("Find a new Recipe")
                                 .frame(width: 200)
                                 .padding()
