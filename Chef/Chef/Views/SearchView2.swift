@@ -101,7 +101,8 @@ struct BottomSheetView<Content: View>: View {
     }
     
     init(isOpen: Binding<Bool>, maxHeight: CGFloat, @ViewBuilder content: () -> Content) {
-        self.minHeight = maxHeight * Constants.minHeightRatio
+        //self.minHeight = maxHeight * Constants.minHeightRatio
+        self.minHeight = 175
         self.maxHeight = maxHeight
         self.content = content()
         self._isOpen = isOpen
@@ -127,6 +128,9 @@ struct BottomSheetView<Content: View>: View {
                         return
                     }
                     self.isOpen = value.translation.height < 0
+                    if !self.isOpen {
+                        UIApplication.shared.endEditing(true)
+                    }
                 })
         }
         .onAppear {
@@ -189,6 +193,7 @@ struct SearchView2: View {
     @State var searchString = ""
     @State var addingIngredient = ""
     @State private var ingredients: [String] = []
+    @State private var navToResults = false
     
     func deleteIngredient(at indexSet: IndexSet) {
         self.ingredients.remove(atOffsets: indexSet)
@@ -209,14 +214,17 @@ struct SearchView2: View {
                             HStack {
                                 TextField("Add an ingredient to the search...", text: self.$addingIngredient, onCommit: {
                                     print("Ingredient" + self.addingIngredient)
-                                    self.ingredients.append(self.addingIngredient)
-                                    self.addingIngredient = ""
+                                    if (!self.addingIngredient.isEmpty) {
+                                        self.ingredients.append(self.addingIngredient)
+                                        self.addingIngredient = ""
+                                    }
                                 })
                                 Button(action: {
-                                    self.addingIngredient = ""
                                     UIApplication.shared.endEditing(true)
+                                    self.addingIngredient = ""
                                 }) {
-                                    Image(systemName: "xmark.circle.fill").opacity(self.addingIngredient == "" ? 0 : 1)
+                                    Image(systemName: "xmark")
+                                        .foregroundColor(Color(.systemBlue)) .opacity(self.addingIngredient == "" ? 0 : 1)
                                 }
                             }
                             
@@ -229,7 +237,13 @@ struct SearchView2: View {
                         
                         HStack {
                             Spacer()
-                            Button(action: {}) {
+                            Button(action: {
+                                print("Search")
+                                print(self.searchString)
+                                print(self.ingredients)
+                                //TODO: Push the RecipeResultsView onto the NavigationView stack
+                                self.navToResults = true
+                            }) {
                                 HStack {
                                     Text("Search")
                                     Image(systemName: "chevron.right")
@@ -242,7 +256,17 @@ struct SearchView2: View {
                 }
             }
             .edgesIgnoringSafeArea(.bottom)
+            NavigationLink(destination: LinkToResults(), isActive: $navToResults) {
+                EmptyView()
+            }.hidden()
         }.navigationBarTitle("Recipe search", displayMode: .inline)
+    }
+}
+
+struct LinkToResults: View {
+    private let scraper = Scraper()
+    var body: some View {
+        ResultsView(searchResults: [scraper.getScrapeStruct(url: "https://www.allrecipes.com/recipe/229780/baked-denver-omelet/?internalSource=hub%20recipe&referringContentType=Search"), scraper.getScrapeStruct(url: "https://www.allrecipes.com/recipe/24532/sausage-casserole/?internalSource=hub%20recipe&referringContentType=Search")])
     }
 }
 
