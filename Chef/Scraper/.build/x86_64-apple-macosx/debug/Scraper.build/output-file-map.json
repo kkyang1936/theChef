@@ -1,0 +1,17 @@
+{
+  "": {
+    "swift-dependencies": "/Users/aaronnikolai/Documents/theChef/Chef/Chef/Scraper/.build/x86_64-apple-macosx/debug/Scraper.build/master.swiftdeps"
+  },
+  "/Users/aaronnikolai/Documents/theChef/Chef/Chef/Scraper/Sources/Scraper/Scraper.swift": {
+    "dependencies": "/Users/aaronnikolai/Documents/theChef/Chef/Chef/Scraper/.build/x86_64-apple-macosx/debug/Scraper.build/Scraper.d",
+    "object": "/Users/aaronnikolai/Documents/theChef/Chef/Chef/Scraper/.build/x86_64-apple-macosx/debug/Scraper.build/Scraper.swift.o",
+    "swiftmodule": "/Users/aaronnikolai/Documents/theChef/Chef/Chef/Scraper/.build/x86_64-apple-macosx/debug/Scraper.build/Scraper~partial.swiftmodule",
+    "swift-dependencies": "/Users/aaronnikolai/Documents/theChef/Chef/Chef/Scraper/.build/x86_64-apple-macosx/debug/Scraper.build/Scraper.swiftdeps"
+  },
+  "/Users/aaronnikolai/Documents/theChef/Chef/Chef/Scraper/Sources/Scraper/main.swift": {
+    "dependencies": "/Users/aaronnikolai/Documents/theChef/Chef/Chef/Scraper/.build/x86_64-apple-macosx/debug/Scraper.build/main.d",
+    "object": "/Users/aaronnikolai/Documents/theChef/Chef/Chef/Scraper/.build/x86_64-apple-macosx/debug/Scraper.build/main.swift.o",
+    "swiftmodule": "/Users/aaronnikolai/Documents/theChef/Chef/Chef/Scraper/.build/x86_64-apple-macosx/debug/Scraper.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/aaronnikolai/Documents/theChef/Chef/Chef/Scraper/.build/x86_64-apple-macosx/debug/Scraper.build/main.swiftdeps"
+  }
+}

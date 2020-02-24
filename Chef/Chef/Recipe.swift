@@ -14,3 +14,9 @@ struct Recipe: Hashable, Codable {
     var ingredients: [String]
     var steps: [String]
 }
+
+struct RecipePreview: Hashable, Codable {
+    var name: String
+    var imageURL: URL?
+    var recipeURL: URL?
+}
