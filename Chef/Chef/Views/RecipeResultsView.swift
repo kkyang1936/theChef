@@ -31,7 +31,7 @@ struct ResultsView: View {
         }.navigationBarTitle("Recipes", displayMode: .inline)
             .onAppear() {
                 DispatchQueue.main.async {
-                    self.searchResults = [SearchResult(name: "Baked Denver Omelet", imageURL: URL(string: "https://images.media-allrecipes.com/userphotos/300x300/1029125.jpg"), recipeLink: "https://www.allrecipes.com/recipe/229780/baked-denver-omelet/?internalSource=hub%20recipe&referringContentType=Search")]
+                    self.searchResults = getSearchResults(keyword: self.recipeName, ingredients: self.ingredientList)
                 }
         }
     }
@@ -52,7 +52,7 @@ struct RecipeResultRow: View {
                         .frame(width: 100, height: 100)
                         .clipShape(Circle())
                 } else {
-                    Image("recipe-image-default")
+                    Image("recipe-default-image")
                         .frame(width: 100, height: 100)
                         .clipShape(Circle())
                 }

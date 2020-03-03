@@ -11,10 +11,9 @@ import SwiftSoup
 
 class RecipeSearchScraper {
     
-    func parseRecipes(ingredients: [String]) -> [RecipePreview] {
-        var recipePreviews = [RecipePreview]()
-        let recipeSearch = RecipeSearch()
-        let searchURL = recipeSearch.getURLWithIngredients(ingredients: ingredients)
+    func parseRecipes(keyword: String, ingredients: [String]) -> [SearchResult] {
+        var recipePreviews = [SearchResult]()
+        let searchURL = createURL(keyword: keyword, ingredients: ingredients)
         let html = try! String(contentsOf: searchURL, encoding: .utf8)
         do {
             let doc: Document = try SwiftSoup.parse(html)
@@ -29,19 +28,32 @@ class RecipeSearchScraper {
         return recipePreviews
     }
     
-    private func parseRecipe(recipe: Element) -> RecipePreview {
-        var name = String()
-        var imageURL = URL(string: "")
-        var recipeURL = URL(string: "")
+    private func parseRecipe(recipe: Element) -> SearchResult {
+        /*var name = ""
+        var imageURL: URL? = nil
+        var recipeURL = ""
         do {
-            name = try recipe.select("a[.data-type*=Recipe]").attr("data-name")
+            recipeURL = try recipe.select("a[.data-type*=Recipe]").attr("data-name")
             let imageURLString = try recipe.select("a[.data-type*=Recipe]").attr("data-imageurl")
             imageURL = URL(string: imageURLString)
-            let recipeURLString = try recipe.select("div.fixed-recipe-card__info").select("h3").select("a").text()
-            recipeURL = URL(string: recipeURLString)
+            name = try recipe.select("div.fixed-recipe-card__info").select("h3").select("a").text()
+            
         } catch {
             print("Error parsing recipe title")
         }
-        return RecipePreview(name: name, imageURL: imageURL, recipeURL: recipeURL)
+        print(name, imageURL, recipeURL)
+        */
+        var name: String = ""
+        var imageURL: String = ""
+        var recipeURL: String = ""
+        do {
+            name = try recipe.select("div h3 a span").first()!.text()
+            imageURL = try recipe.select("div a img").first()!.attr("data-original-src")
+            recipeURL = try recipe.select("div a").first()!.attr("href")
+        } catch {
+            print("Unable to parse article fixed-recipe-card")
+        }
+        print("name: ", name, ", imageURL: ", imageURL, ", recipeURL: ", recipeURL)
+        return SearchResult(name: name, imageURL: URL(string: imageURL)!, recipeLink: recipeURL)
     }
 }

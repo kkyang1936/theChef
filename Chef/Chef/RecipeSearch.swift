@@ -8,24 +8,29 @@
 
 import Foundation
 
-class RecipeSearch {
-    private let baseURL = "https://www.allrecipes.com/search/results/?ingIncl="
-    private var finalURL = URL(string: "")
-    
-    private func createURL(ingredients: [String]) -> URL {
-        var stringURL = String()
-        stringURL.append(baseURL)
-        stringURL.append(ingredients.joined(separator: ","))
-        stringURL.append("&sort=re")
-        return URL(string: stringURL)!
+//https://www.allrecipes.com/search/results/?wt=recipe%20keywords&ingIncl=apple,banana,cheese&sort=re
+//https://www.allrecipes.com/search/results/?ingIncl=apple,banana,cheese&sort=re
+//https://www.allrecipes.com/search/results/?wt=recipe%20keywords&sort=re
+
+func createURL(keyword: String = "", ingredients: [String] = []) -> URL {
+    var str = "https://www.allrecipes.com/search/results/"
+    if (!keyword.isEmpty) {
+        str.append("?wt=" + keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
     }
-    
-    func getURLWithIngredients(ingredients: [String]) -> URL {
-        return createURL(ingredients: ingredients)
+    if (!ingredients.isEmpty) {
+        str.append("&ingIncl=")
+        str.append(ingredients[0].addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+        for i in 1...ingredients.count - 1 {
+            str.append("," + ingredients[i].addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+        }
     }
-    
-    func getRecipesWithIngredients(ingredients: [String]) -> [RecipePreview] {
-        let recipeSearchScraper = RecipeSearchScraper()
-        return recipeSearchScraper.parseRecipes(ingredients: ingredients)
+    str.append("&sort=re")
+    return URL(string: str)!
+}
+
+func getSearchResults(keyword: String = "", ingredients: [String] = []) -> [SearchResult] {
+    if (keyword == "" && ingredients == []) {
+        return []
     }
+    return RecipeSearchScraper().parseRecipes(keyword: keyword, ingredients: ingredients)
 }
