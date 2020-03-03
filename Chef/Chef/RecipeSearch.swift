@@ -35,3 +35,10 @@ func getSearchResults(keyword: String = "", ingredients: [String] = []) -> [Sear
     }
     return RecipeSearchScraper().parseRecipes(keyword: keyword, ingredients: ingredients)
 }
+
+func giveRandomRecipe(keyword: String = "", ingredients: [String] = []) -> Recipe {
+    if (keyword == "" && ingredients == []) {
+        return Recipe(name: "", imageURL: nil, ingredients: [""], steps: [""])
+    }
+    return RecipeSearchScraper().parseRecipes(keyword: keyword, ingredients: ingredients).randomElement()!.recipeStruct
+}
