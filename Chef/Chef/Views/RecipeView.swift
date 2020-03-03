@@ -10,6 +10,7 @@ import SwiftUI
 
 struct RecipeView: View {
     var recipe: Recipe
+    
     var body: some View {
         VStack {
             HStack {

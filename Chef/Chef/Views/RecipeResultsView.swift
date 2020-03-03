@@ -9,30 +9,46 @@
 import SwiftUI
 
 struct ResultsView: View {
-    @State var searchResults: [Recipe]
+    @State private var searchResults: [SearchResult] = []
+    private var recipeName: String
+    private var ingredientList: [String]
+    
+    init(recipeName: String, ingredientList: [String]) {
+        self.recipeName = recipeName
+        self.ingredientList = ingredientList
+    }
     
     var body: some View {
         List {
-            ForEach(searchResults, id: \.self) { result in
-                RecipeResultRow(recipe: result)
+            if (searchResults.isEmpty) {
+                Text("Loading")
+                    .frame(height: 100)
+            } else {
+                ForEach(searchResults, id: \.self) { result in
+                    RecipeResultRow(recipeResult: result)
+                }
             }
         }.navigationBarTitle("Recipes", displayMode: .inline)
-            
+            .onAppear() {
+                DispatchQueue.main.async {
+                    self.searchResults = [SearchResult(name: "Baked Denver Omelet", imageURL: URL(string: "https://images.media-allrecipes.com/userphotos/300x300/1029125.jpg"), recipeLink: "https://www.allrecipes.com/recipe/229780/baked-denver-omelet/?internalSource=hub%20recipe&referringContentType=Search")]
+                }
+        }
     }
 }
 
 struct RecipeResultRow: View {
-    var recipe: Recipe
+    var recipeResult: SearchResult
     var body: some View {
-        NavigationLink(destination: RecipeView(recipe: recipe)) {
+        NavigationLink(destination: RecipeView(recipe: recipeResult.recipeStruct)) {
             HStack {
-                Text(recipe.name)
+                Text(recipeResult.name)
                     .font(.title)
                     .fontWeight(.light)
                     .lineLimit(2)
                 Spacer()
-                if (recipe.imageURL != nil) {
-                    NetworkImage(url: recipe.imageURL!)
+                if (recipeResult.imageURL != nil) {
+                    NetworkImage(url: recipeResult.imageURL!)
                         .frame(width: 100, height: 100)
                         .clipShape(Circle())
                 } else {
@@ -48,6 +64,6 @@ struct RecipeResultRow: View {
 
 struct ResultsView_Preview: PreviewProvider {
     static var previews: some View {
-        ResultsView(searchResults: [Recipe(name: "Baked Denver Omelet", imageURL: URL(string: "https://images.media-allrecipes.com/userphotos/560x315/1029125.jpg"), ingredients: ["2 tablespoons butter", "1/2 onion, chopped", "1/2 green bell pepper, chopped", "1 cup chopped cooked ham", "8 eggs", "1/4 cup milk", "1/2 cup shredded Cheddar cheese", "salt and ground black pepper to taste"], steps: ["Preheat oven to 400 degrees F (200 degrees C). Grease a 10-inch round baking dish.", "Melt butter in a large skillet over medium heat; cook and stir onion and bell pepper until softened, about 5 minutes. Stir in ham and continue cooking until heated through, 5 minutes more.", "Beat eggs and milk in a large bowl. Stir in Cheddar cheese and ham mixture; season with salt and black pepper. Pour mixture into prepared baking dish.", "Bake in preheated oven until eggs are browned and puffy, about 25 minutes. Serve warm."])])
+        ResultsView(recipeName: "", ingredientList: [])
     }
 }

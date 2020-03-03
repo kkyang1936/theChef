@@ -14,3 +14,14 @@ struct Recipe: Hashable, Codable {
     var ingredients: [String]
     var steps: [String]
 }
+
+struct SearchResult: Hashable, Codable {
+    var name: String
+    var imageURL: URL?
+    var recipeLink: String
+    var recipeStruct: Recipe {
+        get {
+            Scraper().getScrapeStruct(url: recipeLink)
+        }
+    }
+}
