@@ -52,6 +52,9 @@ struct RecipeView: View {
                 
             }
         }.navigationBarTitle("View Recipe", displayMode: .inline)
+            .onAppear(perform: {
+                lastOpenRecipe = self.recipe
+            })
     }
     
 }

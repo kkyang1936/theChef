@@ -25,3 +25,5 @@ struct SearchResult: Hashable, Codable {
         }
     }
 }
+
+var lastOpenRecipe: Recipe? = nil
