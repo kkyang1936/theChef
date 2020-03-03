@@ -24,7 +24,8 @@ class RecipeSearch {
         return createURL(ingredients: ingredients)
     }
     
-    private func sampleIngredients() -> [String] {
-        return ["eggs","bacon","cheese"]
+    func getRecipesWithIngredients(ingredients: [String]) -> [RecipePreview] {
+        let recipeSearchScraper = RecipeSearchScraper()
+        return recipeSearchScraper.parseRecipes(ingredients: ingredients)
     }
 }
