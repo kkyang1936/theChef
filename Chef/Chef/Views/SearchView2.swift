@@ -251,7 +251,7 @@ struct SearchView2: View {
                                     Image(systemName: "chevron.right")
                                 }
                                 .padding()
-                            }
+                            }.disabled(self.searchString == "" && self.ingredients == [])
                             .padding(.bottom, geometry.safeAreaInsets.bottom)
                         }
                     }

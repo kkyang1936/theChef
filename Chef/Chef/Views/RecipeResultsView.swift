@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ResultsView: View {
     @State private var searchResults: [SearchResult] = []
@@ -21,8 +22,12 @@ struct ResultsView: View {
     var body: some View {
         List {
             if (searchResults.isEmpty) {
-                Text("Loading")
+                HStack {
+                    Spacer()
+                    LoadingView(style: .large)
                     .frame(height: 100)
+                    Spacer()
+                }
             } else {
                 ForEach(searchResults, id: \.self) { result in
                     RecipeResultRow(recipeResult: result)
@@ -40,7 +45,7 @@ struct ResultsView: View {
 struct RecipeResultRow: View {
     var recipeResult: SearchResult
     var body: some View {
-        NavigationLink(destination: RecipeView(recipe: recipeResult.recipeStruct)) {
+        NavigationLink(destination: RecipeView(result: recipeResult)) {
             HStack {
                 Text(recipeResult.name)
                     .font(.title)
@@ -65,5 +70,15 @@ struct RecipeResultRow: View {
 struct ResultsView_Preview: PreviewProvider {
     static var previews: some View {
         ResultsView(recipeName: "", ingredientList: [])
+    }
+}
+
+struct LoadingView: UIViewRepresentable {
+    let style: UIActivityIndicatorView.Style
+    func makeUIView(context: UIViewRepresentableContext<LoadingView>) -> UIActivityIndicatorView {
+        return UIActivityIndicatorView(style: style)
+    }
+    func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<LoadingView>) {
+        uiView.startAnimating()
     }
 }
