@@ -13,6 +13,7 @@ struct ResultsView: View {
     @State private var searchResults: [SearchResult] = []
     private var recipeName: String
     private var ingredientList: [String]
+    @State private var noResults = false;
     
     init(recipeName: String, ingredientList: [String]) {
         self.recipeName = recipeName
@@ -24,8 +25,13 @@ struct ResultsView: View {
             if (searchResults.isEmpty) {
                 HStack {
                     Spacer()
-                    LoadingView(style: .large)
-                    .frame(height: 100)
+                    if (self.noResults) {
+                        Text("No recipes found")
+                            .frame(height: 100)
+                    } else {
+                        LoadingView(style: .large)
+                        .frame(height: 100)
+                    }
                     Spacer()
                 }
             } else {
@@ -37,6 +43,7 @@ struct ResultsView: View {
             .onAppear() {
                 DispatchQueue.main.async {
                     self.searchResults = getSearchResults(keyword: self.recipeName, ingredients: self.ingredientList)
+                    self.noResults = self.searchResults.isEmpty
                 }
         }
     }
@@ -69,7 +76,7 @@ struct RecipeResultRow: View {
 
 struct ResultsView_Preview: PreviewProvider {
     static var previews: some View {
-        ResultsView(recipeName: "", ingredientList: [])
+        ResultsView(recipeName: "Omelet", ingredientList: ["Egg", "Cheese", "Onion"])
     }
 }
 

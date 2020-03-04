@@ -39,6 +39,20 @@ class Scraper {
         } catch {
             print("Error getting ingredients elements.")
         }
+        for element in ingredientsElements {
+            do {
+                let next = try element.text()
+                if (!next.isEmpty && next != "Add all ingredients to list") {
+                    ingredientsStrings.append(next)
+                }
+            } catch Exception.Error(let message) {
+                print(message)
+            } catch {
+                print("Error taking text from ingredients elements.")
+            }
+        }
+        
+        /*
         do {
             for element in ingredientsElements {
                 if try element.text() != "Add all ingredients to list" {
@@ -50,6 +64,7 @@ class Scraper {
         } catch {
             print("Error taking text from ingredients elements.")
         }
+ */
         return ingredientsStrings
     }
     
@@ -66,14 +81,17 @@ class Scraper {
         } catch {
             print("Error getting steps elements.")
         }
-        do {
-            for element in stepsElements {
-                try stepsStrings.append(element.text())
+        for element in stepsElements {
+            do {
+                let next = try element.text()
+                if (!next.isEmpty) {
+                    stepsStrings.append(next)
+                }
+            } catch Exception.Error(let message) {
+                print(message)
+            } catch {
+                print("Error taking text from steps elements.")
             }
-        } catch Exception.Error(let message) {
-            print(message)
-        } catch {
-            print("Error taking text from steps elements.")
         }
         return stepsStrings
     }
