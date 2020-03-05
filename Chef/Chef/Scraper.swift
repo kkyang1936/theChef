@@ -6,7 +6,6 @@ class Scraper {
     public private(set) var steps = [String]()
     public private(set) var imageUrl = String()
     public private(set) var name = String()
-    private let urls = ["https://www.allrecipes.com/recipe/262161/chef-johns-lobster-thermidor/", "https://www.allrecipes.com/recipe/17456/golden-rum-cake/?internalSource=hub%20recipe&referringContentType=Search"]
     
     private func scrape(_ urlString: String) {
         do {
@@ -31,12 +30,29 @@ class Scraper {
         var ingredientsElements = Elements()
         var ingredientsStrings = [String]()
         do {
-            ingredientsElements = try doc.select("li.checklist__line")
+            ingredientsElements = try doc.select("li.ingredients-item")
+            if (ingredientsElements.size() == 0) {
+                ingredientsElements = try doc.select("li.checklist__line")
+            }
         } catch Exception.Error(let message) {
             print(message)
         } catch {
-            print("error getting elements")
+            print("Error getting ingredients elements.")
         }
+        for element in ingredientsElements {
+            do {
+                let next = try element.text()
+                if (!next.isEmpty && next != "Add all ingredients to list") {
+                    ingredientsStrings.append(next)
+                }
+            } catch Exception.Error(let message) {
+                print(message)
+            } catch {
+                print("Error taking text from ingredients elements.")
+            }
+        }
+        
+        /*
         do {
             for element in ingredientsElements {
                 if try element.text() != "Add all ingredients to list" {
@@ -46,8 +62,9 @@ class Scraper {
         } catch Exception.Error(let message) {
             print(message)
         } catch {
-            print("Error taking text from elements")
+            print("Error taking text from ingredients elements.")
         }
+ */
         return ingredientsStrings
     }
     
@@ -55,20 +72,26 @@ class Scraper {
         var stepsElements = Elements()
         var stepsStrings = [String]()
         do {
-            stepsElements = try doc.select("li.step")
-        } catch Exception.Error(let message){
-            print(message)
-        } catch {
-            print("Error getting step elements")
-        }
-        do {
-            for element in stepsElements {
-                try stepsStrings.append(element.text())
+            stepsElements = try doc.select("li.subcontainer.instructions-section-item div.section-body")
+            if (stepsElements.size() == 0) {
+                stepsElements = try doc.select("li.step")
             }
-        } catch Exception.Error(let message){
+        } catch Exception.Error(let message) {
             print(message)
         } catch {
-            print("Error taking text from elements")
+            print("Error getting steps elements.")
+        }
+        for element in stepsElements {
+            do {
+                let next = try element.text()
+                if (!next.isEmpty) {
+                    stepsStrings.append(next)
+                }
+            } catch Exception.Error(let message) {
+                print(message)
+            } catch {
+                print("Error taking text from steps elements.")
+            }
         }
         return stepsStrings
     }
@@ -76,9 +99,12 @@ class Scraper {
     private func getImageUrl(doc: Document) -> String {
         var src = String()
         do {
-            let photoStrip = try doc.select("ul.photo-strip__items")
-            let photo = photoStrip.first()
-            src = try (photo?.select("img").attr("src") ?? "error")
+            var photoStrip = try doc.select("div.inner")
+            if (photoStrip.size() == 0) {
+                photoStrip = try doc.select("ul.photo-strip__items")
+            }
+            let photo = photoStrip.first()!
+            src = try (photo.select("img").attr("src"))
         } catch Exception.Error(let message) {
             print(message)
         } catch {
@@ -90,7 +116,10 @@ class Scraper {
     private func getName(doc: Document) -> String {
         var name = String()
         do {
-            let nameElement = try doc.select("h1.recipe-summary__h1")
+            var nameElement = try doc.select("h1.recipe-summary__h1")
+            if (nameElement.size() == 0) {
+                nameElement = try doc.select("h1.headline.heading-content")
+            }
             name = try nameElement.text()
         } catch Exception.Error(let message) {
             print(message)

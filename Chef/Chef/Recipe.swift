@@ -15,8 +15,15 @@ struct Recipe: Hashable, Codable {
     var steps: [String]
 }
 
-struct RecipePreview: Hashable, Codable {
+struct SearchResult: Hashable, Codable {
     var name: String
     var imageURL: URL?
-    var recipeURL: URL?
+    var recipeLink: String
+    var recipeStruct: Recipe {
+        get {
+            Scraper().getScrapeStruct(url: recipeLink)
+        }
+    }
 }
+
+var lastOpenRecipe: Recipe? = nil

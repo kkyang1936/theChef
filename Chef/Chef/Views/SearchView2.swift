@@ -193,7 +193,8 @@ struct SearchView2: View {
     @State var searchString = ""
     @State var addingIngredient = ""
     @State private var ingredients: [String] = []
-    @State private var navToResults = false
+    @State private var resultsView: ResultsView? = nil
+    @State private var navigate = false
     
     func deleteIngredient(at indexSet: IndexSet) {
         self.ingredients.remove(atOffsets: indexSet)
@@ -242,31 +243,26 @@ struct SearchView2: View {
                                 print(self.searchString)
                                 print(self.ingredients)
                                 //TODO: Push the RecipeResultsView onto the NavigationView stack
-                                self.navToResults = true
+                                self.resultsView = ResultsView(recipeName: self.searchString, ingredientList: self.ingredients)
+                                self.navigate = true;
                             }) {
                                 HStack {
                                     Text("Search")
                                     Image(systemName: "chevron.right")
                                 }
                                 .padding()
-                            }
+                            }.disabled(self.searchString == "" && self.ingredients == [])
                             .padding(.bottom, geometry.safeAreaInsets.bottom)
                         }
                     }
                 }
             }
             .edgesIgnoringSafeArea(.bottom)
-            NavigationLink(destination: LinkToResults(), isActive: $navToResults) {
+            NavigationLink(destination: resultsView, isActive: $navigate) {
                 EmptyView()
             }.hidden()
+            
         }.navigationBarTitle("Recipe search", displayMode: .inline)
-    }
-}
-
-struct LinkToResults: View {
-    private let scraper = Scraper()
-    var body: some View {
-        ResultsView(searchResults: [scraper.getScrapeStruct(url: "https://www.allrecipes.com/recipe/229780/baked-denver-omelet/?internalSource=hub%20recipe&referringContentType=Search"), scraper.getScrapeStruct(url: "https://www.allrecipes.com/recipe/24532/sausage-casserole/?internalSource=hub%20recipe&referringContentType=Search")])
     }
 }
 

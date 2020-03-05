@@ -8,24 +8,37 @@
 
 import Foundation
 
-class RecipeSearch {
-    private let baseURL = "https://www.allrecipes.com/search/results/?ingIncl="
-    private var finalURL = URL(string: "")
-    
-    private func createURL(ingredients: [String]) -> URL {
-        var stringURL = String()
-        stringURL.append(baseURL)
-        stringURL.append(ingredients.joined(separator: ","))
-        stringURL.append("&sort=re")
-        return URL(string: stringURL)!
+func createURL(keyword: String = "", ingredients: [String] = []) -> URL {
+    var str = "https://www.allrecipes.com/search/results/"
+    if (!keyword.isEmpty) {
+        str.append("?wt=" + keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+    } else {
+        str.append("?wt=" + ingredients[0].addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
     }
-    
-    func getURLWithIngredients(ingredients: [String]) -> URL {
-        return createURL(ingredients: ingredients)
+    if (!ingredients.isEmpty) {
+        str.append("&ingIncl=")
+        str.append(ingredients[0].addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+        if (ingredients.count > 1) {
+            for i in 1...ingredients.count - 1 {
+                str.append("," + ingredients[i].addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+            }
+        }
     }
-    
-    func getRecipesWithIngredients(ingredients: [String]) -> [RecipePreview] {
-        let recipeSearchScraper = RecipeSearchScraper()
-        return recipeSearchScraper.parseRecipes(ingredients: ingredients)
+    str.append("&sort=re")
+    print(str)
+    return URL(string: str)!
+}
+
+func getSearchResults(keyword: String = "", ingredients: [String] = []) -> [SearchResult] {
+    if (keyword == "" && ingredients == []) {
+        return []
     }
+    return RecipeSearchScraper().parseRecipes(keyword: keyword, ingredients: ingredients)
+}
+
+func giveRandomRecipe(keyword: String = "", ingredients: [String] = []) -> Recipe {
+    if (keyword == "" && ingredients == []) {
+        return Recipe(name: "", imageURL: nil, ingredients: [""], steps: [""])
+    }
+    return RecipeSearchScraper().parseRecipes(keyword: keyword, ingredients: ingredients).randomElement()!.recipeStruct
 }
