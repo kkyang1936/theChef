@@ -63,7 +63,9 @@ struct RecipeView: View {
                     Text(step)
                 }
             }
-            Button(action: {}) {
+            Button(action: {
+                SpeechToText().recognize(callback: {print($0)})
+            }) {
                 Image("Hat-icon")
                 .resizable()
                     .aspectRatio(contentMode: .fit)
