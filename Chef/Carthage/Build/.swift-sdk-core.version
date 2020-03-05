@@ -1,0 +1,15 @@
+{
+  "commitish" : "1.0.1",
+  "iOS" : [
+    {
+      "name" : "IBMSwiftSDKCore",
+      "hash" : "a888ae069ad41b370030f6414697ead0cce93948d695d69df829884a8f5cbcf9",
+      "swiftToolchainVersion" : "5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
+    },
+    {
+      "name" : "IBMSwiftSDKCore",
+      "hash" : "a888ae069ad41b370030f6414697ead0cce93948d695d69df829884a8f5cbcf9",
+      "swiftToolchainVersion" : "5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
+    }
+  ]
+}

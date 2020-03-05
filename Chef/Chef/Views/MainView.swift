@@ -48,7 +48,7 @@ struct ContentView: View {
                     }.padding()
                 }
                 Spacer()
-                Button(action: {}) {
+                NavigationLink(destination: ChatView()) {
                     Image("Hat-icon")
                     .resizable()
                         .aspectRatio(contentMode: .fit)
