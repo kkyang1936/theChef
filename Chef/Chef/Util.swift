@@ -22,7 +22,6 @@ class Util {
             //remove {{
             paramsList[0].removeFirst()
             paramsList[0].removeFirst()
-            print(paramsList[0])
             //look at the first element in the comma separated list
             switch String(paramsList[0]) {
             case "readStep":
@@ -36,7 +35,7 @@ class Util {
             case "checkIngredients":
                 var ingred_list: [String] = [String]()
                 for (index, ingredient) in paramsList.enumerated(){
-                    if index != 1{
+                    if index != 0{
                         ingred_list.append(checkIngredient(ingredient: String(ingredient)))
                     }
                 }
