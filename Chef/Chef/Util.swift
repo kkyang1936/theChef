@@ -20,9 +20,9 @@ class Util {
             var paramsList = response.split(separator: ",")
             
             //remove {{
-            let range = paramsList[0].index(paramsList[0].startIndex, offsetBy: 2)..<paramsList[0].endIndex
-            paramsList[0].removeSubrange(range)
-            
+            paramsList[0].removeFirst()
+            paramsList[0].removeFirst()
+            print(paramsList[0])
             //look at the first element in the comma separated list
             switch String(paramsList[0]) {
             case "readStep":
@@ -44,6 +44,8 @@ class Util {
             case "getTimer":
                 let inprogress = "Working on this part";
                 return "hi"
+            case "getIngredients":
+                return getIngredients()
                 //getTimer(timer: String(paramsList[1]))
             default:
                 //did not get what youre looking for
@@ -61,7 +63,7 @@ class Util {
         if n >= lastOpenRecipe!.steps.count{
             return "You're done!"
         }
-        return "Here's step \(n): \n" + lastOpenRecipe!.steps[n]
+        return "Here's step \(n+1): \n" + lastOpenRecipe!.steps[n]
     }
     
     // list the required ingredients
@@ -88,6 +90,9 @@ class Util {
         }else{
             return "You don't need " + ingredient
         }
+    }
+    private static func getIngredients() -> String{
+        return lastOpenRecipe!.ingredients.joined(separator: "\n")
     }
     
     /*
