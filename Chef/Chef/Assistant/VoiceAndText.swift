@@ -73,18 +73,19 @@ class SpeechToText {
             var isFinal = false
             
             if let result = result {
-                print("recognition task is working")
-                print(result)
-                print("recognition task is working")
+                //print("recognition task is working")
+                //print(result)
+                //print("recognition task is working")
                 // Update the text view with the results.
                 self.transcriptionOutput = result.bestTranscription.formattedString
                 isFinal = result.isFinal
-                print(self.transcriptionOutput)
-                print("Text \(result.bestTranscription.formattedString)")
+                
                 
             }
             if isFinal{
                 self.stopRecording()
+                print(self.transcriptionOutput)
+                //print("Text \(result.bestTranscription.formattedString)")
             }else if error == nil{
                 self.restartSpeechTimer()
             }
@@ -117,15 +118,16 @@ class SpeechToText {
     
     private func stopRecording(){
         self.audioEngine.stop()
+        audioEngine.inputNode.removeTap(onBus: 0)
         recognitionRequest?.endAudio()
         self.recognitionRequest = nil
         self.recognitionTask = nil
     }
     
     private func restartSpeechTimer() {
-        let timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: {(timer) in
-            self.stopRecording()
+        let timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: {(timer) in
             timer.invalidate()
+            self.stopRecording()
             
             
         })

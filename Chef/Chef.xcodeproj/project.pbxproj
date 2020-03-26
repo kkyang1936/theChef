@@ -36,7 +36,7 @@
 		D6878BA42411964B00078ACD /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6878B9C2411964B00078ACD /* ViewExtension.swift */; };
 		F708E37E23D8F00F0020901D /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F708E37D23D8F00E0020901D /* RecipeView.swift */; };
 		F746EEE023D9108400CCAF4F /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = F746EEDF23D9108400CCAF4F /* .gitattributes */; };
-		F7DC85A62411B7DB0043DF9D /* SpeechToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DC85A52411B7DB0043DF9D /* SpeechToText.swift */; };
+		F7DC85A62411B7DB0043DF9D /* VoiceAndText.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DC85A52411B7DB0043DF9D /* VoiceAndText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,7 +84,7 @@
 		D6878B9C2411964B00078ACD /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		F708E37D23D8F00E0020901D /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeView.swift; path = Chef/Views/RecipeView.swift; sourceTree = SOURCE_ROOT; };
 		F746EEDF23D9108400CCAF4F /* .gitattributes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
-		F7DC85A52411B7DB0043DF9D /* SpeechToText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToText.swift; sourceTree = "<group>"; };
+		F7DC85A52411B7DB0043DF9D /* VoiceAndText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceAndText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,7 +185,7 @@
 				D6878B922411964B00078ACD /* Models */,
 				D6878B952411964B00078ACD /* View */,
 				D6878B992411964B00078ACD /* Helper */,
-				F7DC85A52411B7DB0043DF9D /* SpeechToText.swift */,
+				F7DC85A52411B7DB0043DF9D /* VoiceAndText.swift */,
 			);
 			path = Assistant;
 			sourceTree = "<group>";
@@ -353,7 +353,7 @@
 				28F8997523D8F04B00E7C802 /* RecipeResultsView.swift in Sources */,
 				B082F5AF23FAF2AD0062BF70 /* RecipeSearch.swift in Sources */,
 				D6878BA02411964B00078ACD /* ChatView.swift in Sources */,
-				F7DC85A62411B7DB0043DF9D /* SpeechToText.swift in Sources */,
+				F7DC85A62411B7DB0043DF9D /* VoiceAndText.swift in Sources */,
 				D6878BA22411964B00078ACD /* ChatHelper.swift in Sources */,
 				282CF1E323D7BE79003B83AC /* SceneDelegate.swift in Sources */,
 				28509B4E240EF53D00E76A96 /* Util.swift in Sources */,
@@ -501,9 +501,10 @@
 			baseConfigurationReference = 26802C4994BE440FD46C5DE8 /* Pods-Chef.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Chef/Preview Content\"";
-				DEVELOPMENT_TEAM = 32ZL93YTRG;
+				DEVELOPMENT_TEAM = GZD4U7T4G2;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -515,8 +516,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ExecutiveChef.stephen.Chef;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ExecutiveChef.kk.Chef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
