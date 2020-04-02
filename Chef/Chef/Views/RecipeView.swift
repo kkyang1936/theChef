@@ -11,6 +11,7 @@ import SwiftUI
 struct RecipeView: View {
     @State private var recipe: Recipe? = nil
     private var res: SearchResult
+    @State private var transcribedText=""
     
     init(result: SearchResult) {
         self.res = result
@@ -64,12 +65,35 @@ struct RecipeView: View {
                 }
             }
             Button(action: {
-                SpeechToText().recognize(callback: {print($0)})
+                
+                SpeechToText().recognize(){(result)in
+                    //self.transcribedText = result
+                    self.transcribedText = result
+                    print("final result:" + result)
+                }
+                
+                
+                
             }) {
                 Image("Hat-icon")
                 .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 100)
+                
+            }
+            Button(action: {
+                
+                TextToSpeech().speak(words: self.transcribedText)
+                print(self.transcribedText)
+            }) {
+                Text("playback")
+                .fontWeight(.semibold)
+                .font(.title)
+                    .foregroundColor(.yellow)
+                .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.yellow, lineWidth: 5))
                 
             }
             }

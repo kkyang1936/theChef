@@ -7,7 +7,10 @@ class SpeechToText {
     let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!
     var recognitionRequest : SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
-    var transcriptionOutput=""
+    var transcriptionOutput = ""
+    var returnOutput = ""
+    //var changed = false
+    //public var finishState = false
     
     private func requestAuthorization(){
         // Asynchronously make the authorization request.
@@ -36,7 +39,7 @@ class SpeechToText {
         }
     }
     
-    private func recognize() -> String {
+    public func recognize(callback: @escaping (String) -> ()) {
         self.requestAuthorization()
         
         // Cancel the previous task if it's running.
@@ -46,7 +49,7 @@ class SpeechToText {
         // Configure the audio session for the app.
         let audioSession = AVAudioSession.sharedInstance()
         do{
-            try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
+            try audioSession.setCategory(.playAndRecord, mode: .measurement, options: .duckOthers)
         }catch{
             print(error)
         }
@@ -73,25 +76,35 @@ class SpeechToText {
             var isFinal = false
             
             if let result = result {
-                //print("recognition task is working")
-                //print(result)
-                //print("recognition task is working")
+                
                 // Update the text view with the results.
                 self.transcriptionOutput = result.bestTranscription.formattedString
+                print("transcripting:" + self.transcriptionOutput)
                 isFinal = result.isFinal
+                if isFinal {
+                    //self.finishState = isFinal
+                    self.returnOutput = result.bestTranscription.formattedString
+                    //print("return:" + self.returnOutput)
+                }
                 
                 
             }
             if isFinal{
                 self.stopRecording()
-                print(self.transcriptionOutput)
-                //print("Text \(result.bestTranscription.formattedString)")
+                print("result:" + self.returnOutput)
+                callback(self.returnOutput)
+                
+                
             }else if error == nil{
                 self.restartSpeechTimer()
+                
             }
             if error != nil {
                 self.stopRecording()
                 print(error)
+                //call back
+                self.returnOutput = "error occur, script transcription failed"
+                callback(self.returnOutput)
             }
         }
         
@@ -113,11 +126,14 @@ class SpeechToText {
         //textView.text = "(Go ahead, I'm listening)"
         
         
-        return self.transcriptionOutput
+        //return self.returnOutput
+        //call back
+        //callback(self.returnOutput)
     }
     
     private func stopRecording(){
         self.audioEngine.stop()
+        
         audioEngine.inputNode.removeTap(onBus: 0)
         recognitionRequest?.endAudio()
         self.recognitionRequest = nil
@@ -125,29 +141,28 @@ class SpeechToText {
     }
     
     private func restartSpeechTimer() {
-        let timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: {(timer) in
+        let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: {(timer) in
             timer.invalidate()
             self.stopRecording()
-            
             
         })
     }
     
     
-    func recognize(callback: @escaping (String) -> ()) {
+    /*func recognize(callback: @escaping (String) -> ()) {
         DispatchQueue.main.async {
             callback(self.recognize())
         }
-    }
+    }*/
 
 }
 
 class TextToSpeech{
     // this method turns text to speech
-    public static func speak(words:String){
+    public func speak(words:String){
         let utterance = AVSpeechUtterance(string: words)
         utterance.voice = AVSpeechSynthesisVoice(language:"en-US")
-        utterance.rate=0.6
+        utterance.rate = 0.55
         
         let synthesizer = AVSpeechSynthesizer()
         synthesizer.speak(utterance)
