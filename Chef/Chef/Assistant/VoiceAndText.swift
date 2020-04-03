@@ -141,7 +141,7 @@ class SpeechToText {
     }
     
     private func restartSpeechTimer() {
-        let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: {(timer) in
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: {(timer) in
             timer.invalidate()
             self.stopRecording()
             

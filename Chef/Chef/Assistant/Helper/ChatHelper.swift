@@ -71,6 +71,7 @@ class ChatHelper : ObservableObject {
             print(error?.localizedDescription ?? "unknown error")
             return
           }
+          
             
             message.output.generic?.forEach({ response in
                 print(response.text ?? "No response")
@@ -88,6 +89,7 @@ class ChatHelper : ObservableObject {
             print(error?.localizedDescription ?? "unknown error")
             return
           }
+            
             
             message.output.generic?.forEach({ response in
                 print(response.text ?? "No response")
