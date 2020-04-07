@@ -76,6 +76,7 @@ class ChatHelper : ObservableObject {
             message.output.generic?.forEach({ response in
                 print(response.text ?? "No response")
                 let correctResponse = Util.interpret(response: response.text ?? "Wrong response")
+                TextToSpeech().speak(words: correctResponse)
                 self.sendMessage(Message(content: correctResponse, user: DataSource.Watson))
             })
         }
