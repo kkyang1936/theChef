@@ -1,6 +1,0 @@
-version: "Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
-options: "2802b79b2d3eeef5501bc9ff835103de"
-build_time: [1581032019, 994110000]
-inputs:
-  "/Users/aaronnikolai/Documents/theChef/Chef/Chef/Scraper/Sources/Scraper/Scraper.swift": !dirty [1581030751, 930444585]
-  "/Users/aaronnikolai/Documents/theChef/Chef/Chef/Scraper/Sources/Scraper/main.swift": !dirty [1581030798, 547567561]

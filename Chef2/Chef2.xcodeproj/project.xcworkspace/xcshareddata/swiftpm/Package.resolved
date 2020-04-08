@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/scinfu/SwiftSoup.git",
         "state": {
           "branch": null,
-          "revision": "11da8c685ddde2d519fad04a7daf8485bbbc773e",
-          "version": "1.7.5"
+          "revision": "21e2a405e19298ad477fc007094db91b6cac08c3",
+          "version": "2.3.1"
         }
       },
       {
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/dmytro-anokhin/url-image.git",
         "state": {
           "branch": null,
-          "revision": "dc913391b6fc0c9de283ef111eb90d0e9abf4c36",
-          "version": "0.9.10"
+          "revision": "44b17289d8eb7db78eefbcf7bafa8cf2221b2a2b",
+          "version": "0.9.13"
         }
       }
     ]

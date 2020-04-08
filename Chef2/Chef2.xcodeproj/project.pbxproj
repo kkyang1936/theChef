@@ -1,0 +1,562 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		960CCE8C243E68E20054AAC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CCE8B243E68E20054AAC8 /* AppDelegate.swift */; };
+		960CCE8E243E68E20054AAC8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CCE8D243E68E20054AAC8 /* SceneDelegate.swift */; };
+		960CCE91243E68E20054AAC8 /* Chef2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 960CCE8F243E68E20054AAC8 /* Chef2.xcdatamodeld */; };
+		960CCE93243E68E20054AAC8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CCE92243E68E20054AAC8 /* MainView.swift */; };
+		960CCE95243E68E30054AAC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 960CCE94243E68E30054AAC8 /* Assets.xcassets */; };
+		960CCE98243E68E30054AAC8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 960CCE97243E68E30054AAC8 /* Preview Assets.xcassets */; };
+		960CCE9B243E68E30054AAC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960CCE99243E68E30054AAC8 /* LaunchScreen.storyboard */; };
+		960CCEA4243E6A150054AAC8 /* SearchView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CCEA3243E6A150054AAC8 /* SearchView2.swift */; };
+		960CCEA6243E6A3D0054AAC8 /* RecipeResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CCEA5243E6A3D0054AAC8 /* RecipeResultsView.swift */; };
+		960CCEA8243E6A640054AAC8 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CCEA7243E6A640054AAC8 /* Recipe.swift */; };
+		960CCEAA243E6A860054AAC8 /* Scraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CCEA9243E6A860054AAC8 /* Scraper.swift */; };
+		960CCEB1243E6B470054AAC8 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CCEB0243E6B470054AAC8 /* ChatView.swift */; };
+		960CCEB4243E6B6B0054AAC8 /* ChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CCEB3243E6B6B0054AAC8 /* ChatHelper.swift */; };
+		960CCEB9243E6C790054AAC8 /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CCEB8243E6C790054AAC8 /* KeyboardResponder.swift */; };
+		960CCEBC243E6CC60054AAC8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CCEBB243E6CC60054AAC8 /* Message.swift */; };
+		960CCEBE243E6D1F0054AAC8 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CCEBD243E6D1F0054AAC8 /* MessageView.swift */; };
+		960CCEC0243E6D6A0054AAC8 /* VoiceAndText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CCEBF243E6D6A0054AAC8 /* VoiceAndText.swift */; };
+		960CCEC2243E6E0F0054AAC8 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CCEC1243E6E0F0054AAC8 /* RecipeView.swift */; };
+		9612D49B243E829C00D2AC33 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 9612D49A243E829C00D2AC33 /* SwiftSoup */; };
+		9612D49E243E82B000D2AC33 /* AssistantV2 in Frameworks */ = {isa = PBXBuildFile; productRef = 9612D49D243E82B000D2AC33 /* AssistantV2 */; };
+		9612D4A0243E876A00D2AC33 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D49F243E876A00D2AC33 /* Util.swift */; };
+		9612D4A2243E87E500D2AC33 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D4A1243E87E500D2AC33 /* User.swift */; };
+		9612D4A4243E880500D2AC33 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D4A3243E880500D2AC33 /* NetworkImage.swift */; };
+		9612D4A7243E883C00D2AC33 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9612D4A6243E883C00D2AC33 /* URLImage */; };
+		9612D4A9243E886E00D2AC33 /* ContentMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D4A8243E886E00D2AC33 /* ContentMessageView.swift */; };
+		9612D4AB243E88B100D2AC33 /* RecipeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D4AA243E88B100D2AC33 /* RecipeSearch.swift */; };
+		9612D4AD243E88DB00D2AC33 /* RecipeSearchScraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D4AC243E88DB00D2AC33 /* RecipeSearchScraper.swift */; };
+		9612D4AF243E892500D2AC33 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D4AE243E892500D2AC33 /* ViewExtension.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		96F8C904243E800B00BD7A4E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		960CCE88243E68E20054AAC8 /* Chef2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chef2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		960CCE8B243E68E20054AAC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		960CCE8D243E68E20054AAC8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		960CCE90243E68E20054AAC8 /* Chef2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Chef2.xcdatamodel; sourceTree = "<group>"; };
+		960CCE92243E68E20054AAC8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		960CCE94243E68E30054AAC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		960CCE97243E68E30054AAC8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		960CCE9A243E68E30054AAC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		960CCE9C243E68E30054AAC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		960CCEA3243E6A150054AAC8 /* SearchView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView2.swift; sourceTree = "<group>"; };
+		960CCEA5243E6A3D0054AAC8 /* RecipeResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeResultsView.swift; sourceTree = "<group>"; };
+		960CCEA7243E6A640054AAC8 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		960CCEA9243E6A860054AAC8 /* Scraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scraper.swift; sourceTree = "<group>"; };
+		960CCEB0243E6B470054AAC8 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		960CCEB3243E6B6B0054AAC8 /* ChatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHelper.swift; sourceTree = "<group>"; };
+		960CCEB8243E6C790054AAC8 /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
+		960CCEBB243E6CC60054AAC8 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		960CCEBD243E6D1F0054AAC8 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		960CCEBF243E6D6A0054AAC8 /* VoiceAndText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceAndText.swift; sourceTree = "<group>"; };
+		960CCEC1243E6E0F0054AAC8 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
+		9612D49F243E876A00D2AC33 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		9612D4A1243E87E500D2AC33 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9612D4A3243E880500D2AC33 /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
+		9612D4A8243E886E00D2AC33 /* ContentMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentMessageView.swift; sourceTree = "<group>"; };
+		9612D4AA243E88B100D2AC33 /* RecipeSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearch.swift; sourceTree = "<group>"; };
+		9612D4AC243E88DB00D2AC33 /* RecipeSearchScraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchScraper.swift; sourceTree = "<group>"; };
+		9612D4AE243E892500D2AC33 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		960CCE85243E68E20054AAC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9612D49B243E829C00D2AC33 /* SwiftSoup in Frameworks */,
+				9612D4A7243E883C00D2AC33 /* URLImage in Frameworks */,
+				9612D49E243E82B000D2AC33 /* AssistantV2 in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		960CCE7F243E68E20054AAC8 = {
+			isa = PBXGroup;
+			children = (
+				960CCE8A243E68E20054AAC8 /* Chef2 */,
+				960CCE89243E68E20054AAC8 /* Products */,
+				96F8C905243E803600BD7A4E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+			usesTabs = 1;
+		};
+		960CCE89243E68E20054AAC8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				960CCE88243E68E20054AAC8 /* Chef2.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		960CCE8A243E68E20054AAC8 /* Chef2 */ = {
+			isa = PBXGroup;
+			children = (
+				960CCE8B243E68E20054AAC8 /* AppDelegate.swift */,
+				960CCE8D243E68E20054AAC8 /* SceneDelegate.swift */,
+				960CCEAE243E6B0B0054AAC8 /* Assistant */,
+				960CCEA7243E6A640054AAC8 /* Recipe.swift */,
+				9612D4AA243E88B100D2AC33 /* RecipeSearch.swift */,
+				9612D4AC243E88DB00D2AC33 /* RecipeSearchScraper.swift */,
+				960CCEA9243E6A860054AAC8 /* Scraper.swift */,
+				9612D49F243E876A00D2AC33 /* Util.swift */,
+				960CCEA2243E69C10054AAC8 /* Views */,
+				960CCE94243E68E30054AAC8 /* Assets.xcassets */,
+				960CCE99243E68E30054AAC8 /* LaunchScreen.storyboard */,
+				960CCE9C243E68E30054AAC8 /* Info.plist */,
+				960CCE8F243E68E20054AAC8 /* Chef2.xcdatamodeld */,
+				960CCE96243E68E30054AAC8 /* Preview Content */,
+			);
+			path = Chef2;
+			sourceTree = "<group>";
+		};
+		960CCE96243E68E30054AAC8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				960CCE97243E68E30054AAC8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		960CCEA2243E69C10054AAC8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				960CCE92243E68E20054AAC8 /* MainView.swift */,
+				960CCEA5243E6A3D0054AAC8 /* RecipeResultsView.swift */,
+				960CCEA3243E6A150054AAC8 /* SearchView2.swift */,
+				960CCEC1243E6E0F0054AAC8 /* RecipeView.swift */,
+				9612D4A3243E880500D2AC33 /* NetworkImage.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		960CCEAE243E6B0B0054AAC8 /* Assistant */ = {
+			isa = PBXGroup;
+			children = (
+				960CCEB2243E6B580054AAC8 /* Helpers */,
+				960CCEBA243E6CA30054AAC8 /* Models */,
+				960CCEAF243E6B2F0054AAC8 /* Views */,
+				960CCEBF243E6D6A0054AAC8 /* VoiceAndText.swift */,
+			);
+			path = Assistant;
+			sourceTree = "<group>";
+		};
+		960CCEAF243E6B2F0054AAC8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				960CCEB0243E6B470054AAC8 /* ChatView.swift */,
+				960CCEBD243E6D1F0054AAC8 /* MessageView.swift */,
+				9612D4A8243E886E00D2AC33 /* ContentMessageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		960CCEB2243E6B580054AAC8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				960CCEB3243E6B6B0054AAC8 /* ChatHelper.swift */,
+				960CCEB8243E6C790054AAC8 /* KeyboardResponder.swift */,
+				9612D4AE243E892500D2AC33 /* ViewExtension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		960CCEBA243E6CA30054AAC8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				960CCEBB243E6CC60054AAC8 /* Message.swift */,
+				9612D4A1243E87E500D2AC33 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		96F8C905243E803600BD7A4E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		960CCE87243E68E20054AAC8 /* Chef2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 960CCE9F243E68E30054AAC8 /* Build configuration list for PBXNativeTarget "Chef2" */;
+			buildPhases = (
+				960CCE84243E68E20054AAC8 /* Sources */,
+				960CCE85243E68E20054AAC8 /* Frameworks */,
+				960CCE86243E68E20054AAC8 /* Resources */,
+				96F8C904243E800B00BD7A4E /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Chef2;
+			packageProductDependencies = (
+				9612D49A243E829C00D2AC33 /* SwiftSoup */,
+				9612D49D243E82B000D2AC33 /* AssistantV2 */,
+				9612D4A6243E883C00D2AC33 /* URLImage */,
+			);
+			productName = Chef2;
+			productReference = 960CCE88243E68E20054AAC8 /* Chef2.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		960CCE80243E68E20054AAC8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = ExecutiveChef;
+				TargetAttributes = {
+					960CCE87243E68E20054AAC8 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+				};
+			};
+			buildConfigurationList = 960CCE83243E68E20054AAC8 /* Build configuration list for PBXProject "Chef2" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 960CCE7F243E68E20054AAC8;
+			packageReferences = (
+				9612D499243E829C00D2AC33 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				9612D49C243E82B000D2AC33 /* XCRemoteSwiftPackageReference "swift-sdk" */,
+				9612D4A5243E883C00D2AC33 /* XCRemoteSwiftPackageReference "url-image" */,
+			);
+			productRefGroup = 960CCE89243E68E20054AAC8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				960CCE87243E68E20054AAC8 /* Chef2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		960CCE86243E68E20054AAC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				960CCE9B243E68E30054AAC8 /* LaunchScreen.storyboard in Resources */,
+				960CCE98243E68E30054AAC8 /* Preview Assets.xcassets in Resources */,
+				960CCE95243E68E30054AAC8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		960CCE84243E68E20054AAC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				960CCEAA243E6A860054AAC8 /* Scraper.swift in Sources */,
+				960CCEA4243E6A150054AAC8 /* SearchView2.swift in Sources */,
+				960CCEA6243E6A3D0054AAC8 /* RecipeResultsView.swift in Sources */,
+				9612D4A0243E876A00D2AC33 /* Util.swift in Sources */,
+				960CCEB9243E6C790054AAC8 /* KeyboardResponder.swift in Sources */,
+				960CCEA8243E6A640054AAC8 /* Recipe.swift in Sources */,
+				9612D4AF243E892500D2AC33 /* ViewExtension.swift in Sources */,
+				960CCEBE243E6D1F0054AAC8 /* MessageView.swift in Sources */,
+				9612D4A2243E87E500D2AC33 /* User.swift in Sources */,
+				960CCEB1243E6B470054AAC8 /* ChatView.swift in Sources */,
+				960CCE8C243E68E20054AAC8 /* AppDelegate.swift in Sources */,
+				960CCE8E243E68E20054AAC8 /* SceneDelegate.swift in Sources */,
+				960CCEC2243E6E0F0054AAC8 /* RecipeView.swift in Sources */,
+				9612D4A9243E886E00D2AC33 /* ContentMessageView.swift in Sources */,
+				960CCEC0243E6D6A0054AAC8 /* VoiceAndText.swift in Sources */,
+				960CCE93243E68E20054AAC8 /* MainView.swift in Sources */,
+				9612D4AB243E88B100D2AC33 /* RecipeSearch.swift in Sources */,
+				960CCEBC243E6CC60054AAC8 /* Message.swift in Sources */,
+				9612D4AD243E88DB00D2AC33 /* RecipeSearchScraper.swift in Sources */,
+				960CCE91243E68E20054AAC8 /* Chef2.xcdatamodeld in Sources */,
+				9612D4A4243E880500D2AC33 /* NetworkImage.swift in Sources */,
+				960CCEB4243E6B6B0054AAC8 /* ChatHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		960CCE99243E68E30054AAC8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				960CCE9A243E68E30054AAC8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		960CCE9D243E68E30054AAC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		960CCE9E243E68E30054AAC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		960CCEA0243E68E30054AAC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Chef2/Preview Content\"";
+				DEVELOPMENT_TEAM = 6393CCY8T4;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Chef2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ExecutiveChef.Jason.Chef2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		960CCEA1243E68E30054AAC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Chef2/Preview Content\"";
+				DEVELOPMENT_TEAM = 6393CCY8T4;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Chef2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ExecutiveChef.Jason.Chef2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		960CCE83243E68E20054AAC8 /* Build configuration list for PBXProject "Chef2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				960CCE9D243E68E30054AAC8 /* Debug */,
+				960CCE9E243E68E30054AAC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		960CCE9F243E68E30054AAC8 /* Build configuration list for PBXNativeTarget "Chef2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				960CCEA0243E68E30054AAC8 /* Debug */,
+				960CCEA1243E68E30054AAC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9612D499243E829C00D2AC33 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.1;
+			};
+		};
+		9612D49C243E82B000D2AC33 /* XCRemoteSwiftPackageReference "swift-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/watson-developer-cloud/swift-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.3.0;
+			};
+		};
+		9612D4A5243E883C00D2AC33 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.13;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9612D49A243E829C00D2AC33 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9612D499243E829C00D2AC33 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+		9612D49D243E82B000D2AC33 /* AssistantV2 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9612D49C243E82B000D2AC33 /* XCRemoteSwiftPackageReference "swift-sdk" */;
+			productName = AssistantV2;
+		};
+		9612D4A6243E883C00D2AC33 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9612D4A5243E883C00D2AC33 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		960CCE8F243E68E20054AAC8 /* Chef2.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				960CCE90243E68E20054AAC8 /* Chef2.xcdatamodel */,
+			);
+			currentVersion = 960CCE90243E68E20054AAC8 /* Chef2.xcdatamodel */;
+			path = Chef2.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 960CCE80243E68E20054AAC8 /* Project object */;
+}
