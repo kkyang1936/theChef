@@ -9,8 +9,7 @@ class SpeechToText {
     var recognitionTask: SFSpeechRecognitionTask?
     var transcriptionOutput = ""
     var returnOutput = ""
-    //var changed = false
-    //public var finishState = false
+
     
     private func requestAuthorization(){
         // Asynchronously make the authorization request.
@@ -121,14 +120,7 @@ class SpeechToText {
             print(error)
         }
         
-        
-        // Let the user know to start talking.
-        //textView.text = "(Go ahead, I'm listening)"
-        
-        
-        //return self.returnOutput
-        //call back
-        //callback(self.returnOutput)
+
     }
     
     private func stopRecording(){
@@ -148,27 +140,49 @@ class SpeechToText {
         })
     }
     
-    
-    /*func recognize(callback: @escaping (String) -> ()) {
-        DispatchQueue.main.async {
-            callback(self.recognize())
-        }
-    }*/
-
 }
 
 class TextToSpeech{
     // this method turns text to speech
     public func speak(words:String){
+		
+		//listVoices()
+		var voiceToUse: AVSpeechSynthesisVoice?
+        for voice in AVSpeechSynthesisVoice.speechVoices() {
+            
+            if voice.name == "Alex"{
+                voiceToUse = voice
+            }else if voice.name == "Aaron"{
+                voiceToUse = voice
+			}else if voice.name == "Karen"{
+				voiceToUse = voice
+			}else if voice.name == "Samantha"{
+                voiceToUse = voice
+            }
+        }
+		
         let utterance = AVSpeechUtterance(string: words)
-        utterance.voice = AVSpeechSynthesisVoice(language:"en-US")
-        utterance.rate = 0.55
+		utterance.voice = voiceToUse
+        print("voice using is")
+        print(utterance.voice)
+        //utterance.voice = AVSpeechSynthesisVoice(language:"en-US")
+        utterance.rate = 0.45
         
         let synthesizer = AVSpeechSynthesizer()
         synthesizer.speak(utterance)
     }
+	
+	public func listVoices() {
+
+        let voicesAvailable = AVSpeechSynthesisVoice.speechVoices()
+        for voice in voicesAvailable {
+            print (voice.identifier + " " + voice.language + " " + voice.name)
+        }
+    }
     
 }
+
+
 
 
 

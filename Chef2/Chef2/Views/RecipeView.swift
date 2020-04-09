@@ -81,7 +81,7 @@ struct RecipeView: View {
                     .frame(width: 100)
                 
             }
-            Button(action: {
+            /*Button(action: {
                 
                 TextToSpeech().speak(words: self.transcribedText)
                 print(self.transcribedText)
@@ -95,7 +95,7 @@ struct RecipeView: View {
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(Color.yellow, lineWidth: 5))
                 
-            }
+            }*/
             }
         }.navigationBarTitle("View Recipe", displayMode: .inline)
             .onAppear(perform: {
