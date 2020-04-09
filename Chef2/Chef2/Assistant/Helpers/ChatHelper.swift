@@ -76,9 +76,15 @@ class ChatHelper : ObservableObject {
             
             message.output.generic?.forEach({ response in
                 print(response.text ?? "No response")
-                let correctResponse = Util.interpret(response: response.text ?? "Wrong response")
-                TextToSpeech().speak(words: correctResponse)
-                self.sendMessage(Message(content: correctResponse, user: DataSource.Watson))
+				if lastOpenRecipe != nil{
+					let correctResponse = Util.interpret(response: response.text ?? "Wrong response")
+					TextToSpeech().speak(words: correctResponse)
+					self.sendMessage(Message(content: correctResponse, user: DataSource.Watson))
+				}
+				else{
+					TextToSpeech().speak(words: "Please select a recipe first")
+					self.sendMessage(Message(content: "Please select a recipe first", user: DataSource.Watson))
+				}
             })
         }
     }
