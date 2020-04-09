@@ -39,7 +39,7 @@ struct ContentView: View {
                                 .background(Color.white).cornerRadius(10)
                             .overlay(RoundedRectangle(cornerRadius: 10).stroke())
                         }.padding()
-                        Button(action: {}) {
+                        NavigationLink(destination: HistoryView()) {
                             Text("History")
                                 .frame(width: 200)
                                 .padding().background(Color.white).cornerRadius(10)
