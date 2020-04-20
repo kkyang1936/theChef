@@ -3,7 +3,7 @@
     "pins": [
       {
         "package": "WatsonDeveloperCloud",
-        "repositoryURL": "https://github.com/watson-developer-cloud/swift-sdk",
+        "repositoryURL": "https://github.com/watson-developer-cloud/swift-sdk.git",
         "state": {
           "branch": null,
           "revision": "c48d2f06d114e97cf3b9723f6b87ba26932bba8b",
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/dmytro-anokhin/url-image.git",
         "state": {
           "branch": null,
-          "revision": "44b17289d8eb7db78eefbcf7bafa8cf2221b2a2b",
-          "version": "0.9.13"
+          "revision": "5b9bb58e45309c039b1c35f5fcf3b73dc82231ca",
+          "version": "0.9.14"
         }
       }
     ]

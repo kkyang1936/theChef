@@ -41,8 +41,9 @@ class Util {
                 }
                 return ingred_list.joined(separator: "\n")
             case "getTimer":
-                let inprogress = "Working on this part";
-                return "hi"
+                //let inprogress = "Working on this part";
+				//TODO
+                return "getTimer"
             case "getIngredients":
                 return getIngredients()
                 //getTimer(timer: String(paramsList[1]))

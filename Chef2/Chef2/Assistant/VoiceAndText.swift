@@ -100,7 +100,7 @@ class SpeechToText {
             }
             if error != nil {
                 self.stopRecording()
-                print(error)
+				print(error!)
                 //call back
                 self.returnOutput = "error occur, script transcription failed"
                 callback(self.returnOutput)
@@ -133,7 +133,7 @@ class SpeechToText {
     }
     
     private func restartSpeechTimer() {
-        let timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: {(timer) in
+        Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: {(timer) in
             timer.invalidate()
             self.stopRecording()
             
@@ -164,7 +164,9 @@ class TextToSpeech{
         let utterance = AVSpeechUtterance(string: words)
 		utterance.voice = voiceToUse
         print("voice using is")
-        print(utterance.voice)
+		if utterance.voice != nil {
+			print(utterance.voice!)
+		}
         //utterance.voice = AVSpeechSynthesisVoice(language:"en-US")
         utterance.rate = 0.45
         
