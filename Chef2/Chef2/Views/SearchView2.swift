@@ -143,7 +143,7 @@ struct SearchView2: View {
                 CameraView2Representable()
                     .edgesIgnoringSafeArea(.top)
 					.gesture(TapGesture().onEnded {
-						self.ingredients.insert("Identifying photo...", at: 0)
+						self.ingredients.insert("Identifying ingredient...", at: 0)
 						CameraView2.snapPhoto(didRecognizeIngredient: { ingredient in
 							//TODO ingredient is nil if no food/error
 							//Update view by adding ingredient to list.

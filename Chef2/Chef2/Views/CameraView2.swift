@@ -82,18 +82,22 @@ class CameraView2: UIView {
 	}
 	
 	public static func snapPhoto(didRecognizeIngredient: @escaping (String?) -> ()) {
-		DispatchQueue.main.async {
-			guard let camView = CameraView2.instance else { print("nil CameraView2 instance"); didRecognizeIngredient(nil); return }
-			guard let photoOutput = camView.photoOutput else { print("nil photoOutput"); didRecognizeIngredient(nil); return }
-			guard let photoOutputConnection = photoOutput.connection(with: .video) else { print("couldn't get photoOutputConnection"); didRecognizeIngredient(nil); return }
-			if let orientation = UIDevice.current.orientation.asVideoOrientation {
-				photoOutputConnection.videoOrientation = orientation
+		if capturesInProgress.isEmpty {
+			DispatchQueue.main.async {
+				guard let camView = CameraView2.instance else { print("nil CameraView2 instance"); didRecognizeIngredient(nil); return }
+				guard let photoOutput = camView.photoOutput else { print("nil photoOutput"); didRecognizeIngredient(nil); return }
+				guard let photoOutputConnection = photoOutput.connection(with: .video) else { print("couldn't get photoOutputConnection"); didRecognizeIngredient(nil); return }
+				if let orientation = UIDevice.current.orientation.asVideoOrientation {
+					photoOutputConnection.videoOrientation = orientation
+				}
+				let photoSettings = AVCapturePhotoSettings()
+				photoSettings.flashMode = .auto
+				let photoProcessor = PhotoCaptureProcessor(didRecognizeIngredient: didRecognizeIngredient)
+				CameraView2.capturesInProgress.insert(photoProcessor)
+				photoOutput.capturePhoto(with: photoSettings, delegate: photoProcessor)
 			}
-			let photoSettings = AVCapturePhotoSettings()
-			photoSettings.flashMode = .auto
-			let photoProcessor = PhotoCaptureProcessor(didRecognizeIngredient: didRecognizeIngredient)
-			CameraView2.capturesInProgress.insert(photoProcessor)
-			photoOutput.capturePhoto(with: photoSettings, delegate: photoProcessor)
+		} else {
+			didRecognizeIngredient(nil)
 		}
 	}
 }
