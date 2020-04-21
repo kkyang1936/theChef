@@ -32,7 +32,11 @@
 		9612D4AB243E88B100D2AC33 /* RecipeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D4AA243E88B100D2AC33 /* RecipeSearch.swift */; };
 		9612D4AD243E88DB00D2AC33 /* RecipeSearchScraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D4AC243E88DB00D2AC33 /* RecipeSearchScraper.swift */; };
 		9612D4AF243E892500D2AC33 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D4AE243E892500D2AC33 /* ViewExtension.swift */; };
-		96CF1393244E6085005135CC /* AssistantV2 in Frameworks */ = {isa = PBXBuildFile; productRef = 96CF1392244E6085005135CC /* AssistantV2 */; };
+		966EC75A244E65D600FC79F6 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966EC759244E65D600FC79F6 /* CameraView.swift */; };
+		966EC75C244E678400FC79F6 /* CameraView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966EC75B244E678400FC79F6 /* CameraView2.swift */; };
+		96A51F9C244F9F3E0065CED6 /* IngredientRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A51F9B244F9F3E0065CED6 /* IngredientRecognition.swift */; };
+		96A51F9F244FA2E20065CED6 /* AssistantV2 in Frameworks */ = {isa = PBXBuildFile; productRef = 96A51F9E244FA2E20065CED6 /* AssistantV2 */; };
+		96A51FA1244FA2E20065CED6 /* VisualRecognitionV3 in Frameworks */ = {isa = PBXBuildFile; productRef = 96A51FA0244FA2E20065CED6 /* VisualRecognitionV3 */; };
 		B00F1E54243FC72300B30043 /* RecipeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F1E53243FC72300B30043 /* RecipeStorage.swift */; };
 		B00F1E56243FC84300B30043 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F1E55243FC84300B30043 /* HistoryView.swift */; };
 		B02B516E243FCC3B000987DC /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = B02B516D243FCC3B000987DC /* SwiftSoup */; };
@@ -80,6 +84,9 @@
 		9612D4AA243E88B100D2AC33 /* RecipeSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearch.swift; sourceTree = "<group>"; };
 		9612D4AC243E88DB00D2AC33 /* RecipeSearchScraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchScraper.swift; sourceTree = "<group>"; };
 		9612D4AE243E892500D2AC33 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		966EC759244E65D600FC79F6 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		966EC75B244E678400FC79F6 /* CameraView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView2.swift; sourceTree = "<group>"; };
+		96A51F9B244F9F3E0065CED6 /* IngredientRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientRecognition.swift; sourceTree = "<group>"; };
 		B00F1E53243FC72300B30043 /* RecipeStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStorage.swift; sourceTree = "<group>"; };
 		B00F1E55243FC84300B30043 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,8 +97,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B02B5171243FCC53000987DC /* URLImage in Frameworks */,
+				96A51FA1244FA2E20065CED6 /* VisualRecognitionV3 in Frameworks */,
 				B02B516E243FCC3B000987DC /* SwiftSoup in Frameworks */,
-				96CF1393244E6085005135CC /* AssistantV2 in Frameworks */,
+				96A51F9F244FA2E20065CED6 /* AssistantV2 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +130,7 @@
 				960CCE8B243E68E20054AAC8 /* AppDelegate.swift */,
 				960CCE8D243E68E20054AAC8 /* SceneDelegate.swift */,
 				960CCEAE243E6B0B0054AAC8 /* Assistant */,
+				96A51F9B244F9F3E0065CED6 /* IngredientRecognition.swift */,
 				960CCEA7243E6A640054AAC8 /* Recipe.swift */,
 				9612D4AA243E88B100D2AC33 /* RecipeSearch.swift */,
 				9612D4AC243E88DB00D2AC33 /* RecipeSearchScraper.swift */,
@@ -155,6 +164,8 @@
 				960CCEC1243E6E0F0054AAC8 /* RecipeView.swift */,
 				9612D4A3243E880500D2AC33 /* NetworkImage.swift */,
 				B00F1E55243FC84300B30043 /* HistoryView.swift */,
+				966EC759244E65D600FC79F6 /* CameraView.swift */,
+				966EC75B244E678400FC79F6 /* CameraView2.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,7 +237,8 @@
 			packageProductDependencies = (
 				B02B516D243FCC3B000987DC /* SwiftSoup */,
 				B02B5170243FCC53000987DC /* URLImage */,
-				96CF1392244E6085005135CC /* AssistantV2 */,
+				96A51F9E244FA2E20065CED6 /* AssistantV2 */,
+				96A51FA0244FA2E20065CED6 /* VisualRecognitionV3 */,
 			);
 			productName = Chef2;
 			productReference = 960CCE88243E68E20054AAC8 /* Chef2.app */;
@@ -259,7 +271,7 @@
 			packageReferences = (
 				B02B516C243FCC3B000987DC /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 				B02B516F243FCC53000987DC /* XCRemoteSwiftPackageReference "url-image" */,
-				96CF1391244E6085005135CC /* XCRemoteSwiftPackageReference "swift-sdk" */,
+				96A51F9D244FA2E20065CED6 /* XCRemoteSwiftPackageReference "swift-sdk" */,
 			);
 			productRefGroup = 960CCE89243E68E20054AAC8 /* Products */;
 			projectDirPath = "";
@@ -288,12 +300,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96A51F9C244F9F3E0065CED6 /* IngredientRecognition.swift in Sources */,
 				960CCEAA243E6A860054AAC8 /* Scraper.swift in Sources */,
 				B00F1E56243FC84300B30043 /* HistoryView.swift in Sources */,
 				960CCEA4243E6A150054AAC8 /* SearchView2.swift in Sources */,
 				960CCEA6243E6A3D0054AAC8 /* RecipeResultsView.swift in Sources */,
 				9612D4A0243E876A00D2AC33 /* Util.swift in Sources */,
 				960CCEB9243E6C790054AAC8 /* KeyboardResponder.swift in Sources */,
+				966EC75C244E678400FC79F6 /* CameraView2.swift in Sources */,
 				960CCEA8243E6A640054AAC8 /* Recipe.swift in Sources */,
 				9612D4AF243E892500D2AC33 /* ViewExtension.swift in Sources */,
 				960CCEBE243E6D1F0054AAC8 /* MessageView.swift in Sources */,
@@ -311,6 +325,7 @@
 				B00F1E54243FC72300B30043 /* RecipeStorage.swift in Sources */,
 				960CCE91243E68E20054AAC8 /* Chef2.xcdatamodeld in Sources */,
 				9612D4A4243E880500D2AC33 /* NetworkImage.swift in Sources */,
+				966EC75A244E65D600FC79F6 /* CameraView.swift in Sources */,
 				960CCEB4243E6B6B0054AAC8 /* ChatHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,7 +464,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Chef2/Preview Content\"";
-				DEVELOPMENT_TEAM = GZD4U7T4G2;
+				DEVELOPMENT_TEAM = 6393CCY8T4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Chef2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -457,7 +472,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ExecutiveChef.KK.Chef2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ExecutiveChef.Jason.Chef2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -470,7 +485,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Chef2/Preview Content\"";
-				DEVELOPMENT_TEAM = GZD4U7T4G2;
+				DEVELOPMENT_TEAM = 6393CCY8T4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Chef2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -478,7 +493,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ExecutiveChef.KK.Chef2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ExecutiveChef.Jason.Chef2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -509,7 +524,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		96CF1391244E6085005135CC /* XCRemoteSwiftPackageReference "swift-sdk" */ = {
+		96A51F9D244FA2E20065CED6 /* XCRemoteSwiftPackageReference "swift-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/watson-developer-cloud/swift-sdk.git";
 			requirement = {
@@ -536,10 +551,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		96CF1392244E6085005135CC /* AssistantV2 */ = {
+		96A51F9E244FA2E20065CED6 /* AssistantV2 */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 96CF1391244E6085005135CC /* XCRemoteSwiftPackageReference "swift-sdk" */;
+			package = 96A51F9D244FA2E20065CED6 /* XCRemoteSwiftPackageReference "swift-sdk" */;
 			productName = AssistantV2;
+		};
+		96A51FA0244FA2E20065CED6 /* VisualRecognitionV3 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96A51F9D244FA2E20065CED6 /* XCRemoteSwiftPackageReference "swift-sdk" */;
+			productName = VisualRecognitionV3;
 		};
 		B02B516D243FCC3B000987DC /* SwiftSoup */ = {
 			isa = XCSwiftPackageProductDependency;

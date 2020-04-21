@@ -10,70 +10,6 @@ import SwiftUI
 import UIKit
 import AVFoundation
 
-class CameraView: UIView {
-    private var captureSession: AVCaptureSession?
-    
-    init() {
-        super.init(frame: .zero)
-        var allowedAccess = false
-        let blocker = DispatchGroup()
-        blocker.enter()
-        AVCaptureDevice.requestAccess(for: .video) { flag in
-            allowedAccess = flag
-            blocker.leave()
-        }
-        blocker.wait()
-        if (!allowedAccess) {
-            print("!!! NO ACCESS TO CAMERA")
-            return
-        }
-        let session = AVCaptureSession()
-        session.beginConfiguration()
-        let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .unspecified)
-        guard videoDevice != nil, let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice!), session.canAddInput(videoDeviceInput) else {
-            print("!!! NO CAMERA DETECTED")
-            return
-        }
-        session.addInput(videoDeviceInput)
-        session.commitConfiguration()
-        self.captureSession = session
-    }
-    
-    override class var layerClass: AnyClass {
-        AVCaptureVideoPreviewLayer.self
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    var videoPreviewLayer: AVCaptureVideoPreviewLayer {
-        return layer as! AVCaptureVideoPreviewLayer
-    }
-    
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        if nil != self.superview {
-            self.videoPreviewLayer.session = self.captureSession
-            self.videoPreviewLayer.videoGravity = .resizeAspectFill
-            self.captureSession?.startRunning()
-        } else {
-            self.captureSession?.stopRunning()
-        }
-    }
-}
-
-struct CameraViewRepresentable: UIViewRepresentable {
-    func updateUIView(_ uiView: CameraView, context: UIViewRepresentableContext<CameraViewRepresentable>) {
-    }
-    
-    func makeUIView(context: UIViewRepresentableContext<CameraViewRepresentable>) -> CameraView {
-        CameraView()
-    }
-    
-    typealias UIViewType = CameraView
-}
-
 fileprivate enum Constants {
     static let radius: CGFloat = 16
     static let indicatorHeight: CGFloat = 6
@@ -204,8 +140,20 @@ struct SearchView2: View {
         ZStack {
             GeometryReader { g in
                 //Only works on physical devices
-                CameraViewRepresentable()
+                CameraView2Representable()
                     .edgesIgnoringSafeArea(.top)
+					.gesture(TapGesture().onEnded {
+						self.ingredients.insert("Identifying photo...", at: 0)
+						CameraView2.snapPhoto(didRecognizeIngredient: { ingredient in
+							//TODO ingredient is nil if no food/error
+							//Update view by adding ingredient to list.
+							if (ingredient == nil) {
+								self.ingredients.remove(at: 0)
+							} else {
+								self.ingredients[0] = ingredient!
+							}
+						})
+					})
             }
             BottomSheetView(isOpen: $bottomSheetShown, maxHeight: 600) {
                 GeometryReader { geometry in
