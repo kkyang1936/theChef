@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import AssistantV2
 
 class AssistantAudioInteraction {
 	static func playStartAudioCue() {
@@ -20,7 +21,16 @@ class AssistantAudioInteraction {
 	
 	static func sendVoiceToAssistant(callback: @escaping (String?) -> () = AssistantAudioInteraction.readAssistantResponse) {
 		SpeechToText().recognize { transcription in
-			ChefAssistant.sendMessage(transcription, callback: callback)
+			ChefAssistant.sendMessage(transcription) { result in
+				callback(result)
+			}
+		}
+	}
+	
+	static func sendVoiceToAssistantAdvanced(onVoiceTranscribed: @escaping (String) -> Void, onWatsonResponse: @escaping (WatsonResponse<MessageResponse>?, WatsonError?) -> Void) {
+		SpeechToText().recognize { transcription in
+			onVoiceTranscribed(transcription)
+			ChefAssistant.sendMessageAdvanced(transcription, completionHandler: onWatsonResponse)
 		}
 	}
 	

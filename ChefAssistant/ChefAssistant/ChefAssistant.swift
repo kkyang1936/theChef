@@ -18,7 +18,7 @@ class ChefAssistant {
     static var instance: ChefAssistant {
         get {
             if _instance == nil {
-				_instance = ChefAssistant(getWelcomeMessage: true)
+                _instance = ChefAssistant()
             }
             return _instance!
         }
@@ -27,15 +27,10 @@ class ChefAssistant {
     
     //Currently unused
     static func beginSession() {
-        //ChefAssistant.instance._beginSession(getWelcomeMessage: true)
-		if ChefAssistant._instance == nil {
-			ChefAssistant._instance = ChefAssistant(getWelcomeMessage: false)
-		}
-		else if ChefAssistant._instance!.sessionID == "" {
-			ChefAssistant._instance!._beginSession(getWelcomeMessage: false)
-		}
+        ChefAssistant.instance._beginSession(getWelcomeMessage: true)
     }
     
+    //Currently unused
     static func deleteSession() {
         ChefAssistant.instance._deleteSession()
     }
@@ -53,7 +48,7 @@ class ChefAssistant {
             var fragments: [String] = []
             message.output.generic?.forEach { fragment in
                 if fragment.text != nil {
-					fragments.append(Util.interpret(response: fragment.text!))
+                    fragments.append(fragment.text!) //Util.interpret(fragment.text!) in full version
                 } else {
                     print("sendMessage recieved response fragment with no text")
                 }
@@ -71,11 +66,11 @@ class ChefAssistant {
     private var assistant: Assistant
     private var sessionID = ""
     
-	private init(getWelcomeMessage: Bool) {
+    private init() {
         let authenticator = WatsonIAMAuthenticator(apiKey: ChefAssistant.apiKey)
         self.assistant = Assistant(version: ChefAssistant.apiVersion, authenticator: authenticator)
         self.assistant.serviceURL = ChefAssistant.serviceURL
-        self._beginSession(getWelcomeMessage: getWelcomeMessage)
+        self._beginSession(getWelcomeMessage: true)
     }
     
     private func _beginSession(getWelcomeMessage: Bool) {
@@ -124,7 +119,7 @@ class ChefAssistant {
     
     private func _sendMessage(_ msg: String?, completionHandler: @escaping (WatsonResponse<MessageResponse>?, WatsonError?) -> Void) {
         if self.sessionID == "" {
-            self._beginSession(getWelcomeMessage: msg != nil)
+            self._beginSession(getWelcomeMessage: true)
         }
         if msg == nil {
             self.assistant.message(assistantID: ChefAssistant.assistantID, sessionID: self.sessionID, completionHandler: completionHandler)

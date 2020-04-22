@@ -74,13 +74,20 @@ struct RecipeView: View {
 					//Transcribe speech to text
 					//Send result to watson assistant
 					//Read response from assistant aloud
-					AssistantAudioInteraction.sendVoiceToAssistant(callback: { reply in
-						if reply != nil {
-							print("Assistant response: " + reply!)
+					
+					AssistantAudioInteraction.sendVoiceToAssistantAdvanced(onVoiceTranscribed: {_ in
+						AssistantAudioInteraction.playEndAudioCue()
+					}, onWatsonResponse: { response, error in
+						guard let message = response?.result else {
+							print("Watson message error: " + (error?.localizedDescription ?? "unknown error"))
+							return
 						}
-						AssistantAudioInteraction.readAssistantResponse(reply)
-						//Re-enable button
-						self.voiceButtonDisabled = false
+						message.output.generic?.forEach { response in
+							print(response.text ?? "No response")
+							let correctResponse = Util.interpret(response: response.text ?? "Wrong response")
+							TextToSpeech().speak(words: correctResponse)
+							//self.sendMessage(Message(content: correctResponse, user: DataSource.Watson))
+						}
 					})
 				}
                 
