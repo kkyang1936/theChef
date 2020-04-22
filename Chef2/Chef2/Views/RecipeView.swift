@@ -102,6 +102,7 @@ struct RecipeView: View {
                 DispatchQueue.main.async {
                     self.recipe = self.res.recipeStruct
                     lastOpenRecipe = self.recipe
+					RecipeStorage.saveRecipe(recipe: self.res)
                 }
             })
     }
