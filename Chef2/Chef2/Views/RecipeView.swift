@@ -10,8 +10,8 @@ import SwiftUI
 
 struct RecipeView: View {
     @State private var recipe: Recipe? = nil
+	@State private var voiceButtonDisabled = false
     private var res: SearchResult
-    @State private var transcribedText=""
     
     init(result: SearchResult) {
         self.res = result
@@ -65,14 +65,24 @@ struct RecipeView: View {
                 }
             }
             Button(action: {
-                
-                SpeechToText().recognize(){(result)in
-                    //self.transcribedText = result
-                    self.transcribedText = result
-                    print("final result:" + result)
-                }
-                
-                
+				//TODO
+				DispatchQueue.main.async {
+					//Play an audio cue
+					AssistantAudioInteraction.playStartAudioCue()
+					//Disable button
+					self.voiceButtonDisabled = true
+					//Transcribe speech to text
+					//Send result to watson assistant
+					//Read response from assistant aloud
+					AssistantAudioInteraction.sendVoiceToAssistant(callback: { reply in
+						if reply != nil {
+							print("Assistant response: " + reply!)
+						}
+						AssistantAudioInteraction.readAssistantResponse(reply)
+						//Re-enable button
+						self.voiceButtonDisabled = false
+					})
+				}
                 
             }) {
                 Image("Hat-icon")
@@ -81,27 +91,14 @@ struct RecipeView: View {
                     .frame(width: 100)
                 
             }
-            /*Button(action: {
-                
-                TextToSpeech().speak(words: self.transcribedText)
-                print(self.transcribedText)
-            }) {
-                Text("playback")
-                .fontWeight(.semibold)
-                .font(.title)
-                    .foregroundColor(.yellow)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.yellow, lineWidth: 5))
-                
-            }*/
+			.disabled(self.voiceButtonDisabled)
             }
         }.navigationBarTitle("View Recipe", displayMode: .inline)
             .onAppear(perform: {
                 DispatchQueue.main.async {
                     self.recipe = self.res.recipeStruct
                     lastOpenRecipe = self.recipe
+					//TODO Add recipe to history
                 }
             })
     }

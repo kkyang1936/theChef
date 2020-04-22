@@ -34,6 +34,8 @@
 		9612D4AF243E892500D2AC33 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D4AE243E892500D2AC33 /* ViewExtension.swift */; };
 		966EC75A244E65D600FC79F6 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966EC759244E65D600FC79F6 /* CameraView.swift */; };
 		966EC75C244E678400FC79F6 /* CameraView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966EC75B244E678400FC79F6 /* CameraView2.swift */; };
+		9692C53B244FC78E00019B0D /* ChefAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692C53A244FC78E00019B0D /* ChefAssistant.swift */; };
+		9692C53D244FE1C300019B0D /* AssistantAudioInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692C53C244FE1C300019B0D /* AssistantAudioInteraction.swift */; };
 		96A51F9C244F9F3E0065CED6 /* IngredientRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A51F9B244F9F3E0065CED6 /* IngredientRecognition.swift */; };
 		96A51F9F244FA2E20065CED6 /* AssistantV2 in Frameworks */ = {isa = PBXBuildFile; productRef = 96A51F9E244FA2E20065CED6 /* AssistantV2 */; };
 		96A51FA1244FA2E20065CED6 /* VisualRecognitionV3 in Frameworks */ = {isa = PBXBuildFile; productRef = 96A51FA0244FA2E20065CED6 /* VisualRecognitionV3 */; };
@@ -86,6 +88,8 @@
 		9612D4AE243E892500D2AC33 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		966EC759244E65D600FC79F6 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		966EC75B244E678400FC79F6 /* CameraView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView2.swift; sourceTree = "<group>"; };
+		9692C53A244FC78E00019B0D /* ChefAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefAssistant.swift; sourceTree = "<group>"; };
+		9692C53C244FE1C300019B0D /* AssistantAudioInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantAudioInteraction.swift; sourceTree = "<group>"; };
 		96A51F9B244F9F3E0065CED6 /* IngredientRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientRecognition.swift; sourceTree = "<group>"; };
 		B00F1E53243FC72300B30043 /* RecipeStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStorage.swift; sourceTree = "<group>"; };
 		B00F1E55243FC84300B30043 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
@@ -134,9 +138,9 @@
 				960CCEA7243E6A640054AAC8 /* Recipe.swift */,
 				9612D4AA243E88B100D2AC33 /* RecipeSearch.swift */,
 				9612D4AC243E88DB00D2AC33 /* RecipeSearchScraper.swift */,
+				B00F1E53243FC72300B30043 /* RecipeStorage.swift */,
 				960CCEA9243E6A860054AAC8 /* Scraper.swift */,
 				9612D49F243E876A00D2AC33 /* Util.swift */,
-				B00F1E53243FC72300B30043 /* RecipeStorage.swift */,
 				960CCEA2243E69C10054AAC8 /* Views */,
 				960CCE94243E68E30054AAC8 /* Assets.xcassets */,
 				960CCE99243E68E30054AAC8 /* LaunchScreen.storyboard */,
@@ -173,6 +177,8 @@
 		960CCEAE243E6B0B0054AAC8 /* Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				9692C53A244FC78E00019B0D /* ChefAssistant.swift */,
+				9692C53C244FE1C300019B0D /* AssistantAudioInteraction.swift */,
 				960CCEB2243E6B580054AAC8 /* Helpers */,
 				960CCEBA243E6CA30054AAC8 /* Models */,
 				960CCEAF243E6B2F0054AAC8 /* Views */,
@@ -310,6 +316,7 @@
 				966EC75C244E678400FC79F6 /* CameraView2.swift in Sources */,
 				960CCEA8243E6A640054AAC8 /* Recipe.swift in Sources */,
 				9612D4AF243E892500D2AC33 /* ViewExtension.swift in Sources */,
+				9692C53B244FC78E00019B0D /* ChefAssistant.swift in Sources */,
 				960CCEBE243E6D1F0054AAC8 /* MessageView.swift in Sources */,
 				9612D4A2243E87E500D2AC33 /* User.swift in Sources */,
 				960CCEB1243E6B470054AAC8 /* ChatView.swift in Sources */,
@@ -321,6 +328,7 @@
 				960CCE93243E68E20054AAC8 /* MainView.swift in Sources */,
 				9612D4AB243E88B100D2AC33 /* RecipeSearch.swift in Sources */,
 				960CCEBC243E6CC60054AAC8 /* Message.swift in Sources */,
+				9692C53D244FE1C300019B0D /* AssistantAudioInteraction.swift in Sources */,
 				9612D4AD243E88DB00D2AC33 /* RecipeSearchScraper.swift in Sources */,
 				B00F1E54243FC72300B30043 /* RecipeStorage.swift in Sources */,
 				960CCE91243E68E20054AAC8 /* Chef2.xcdatamodeld in Sources */,

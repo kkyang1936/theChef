@@ -60,6 +60,9 @@ class Util {
     //read the nth step in the sequence
     private static func readStep(n: Int) -> String{
         //Make watson respond with
+		guard lastOpenRecipe != nil else {
+			return "You aren't currently in the middle of any recipes."
+		}
         if n >= lastOpenRecipe!.steps.count{
             return "You're done!"
         }
@@ -68,6 +71,9 @@ class Util {
     
     // list the required ingredients
     private static func listIngredients() -> String{
+		guard lastOpenRecipe != nil else {
+			return "You aren't currently in the middle of any recipes."
+		}
         //Make watson respond with
         return "You will need the following... " + lastOpenRecipe!.ingredients.joined(separator: ", ")
     }
@@ -76,7 +82,10 @@ class Util {
         // send this to watson
         return timer + " from now"
     }
-    private static func checkIngredient(ingredient: String) -> String{
+    private static func checkIngredient(ingredient: String) -> String {
+		guard lastOpenRecipe != nil else {
+			return "You aren't currently in the middle of any recipes."
+		}
         var requiredIngredient = false
         var ingredient_index = -1
         for (index, ingredient_i) in lastOpenRecipe!.ingredients.enumerated(){
@@ -92,6 +101,9 @@ class Util {
         }
     }
     private static func getIngredients() -> String{
+		guard lastOpenRecipe != nil else {
+			return "You aren't currently in the middle of any recipes."
+		}
         return lastOpenRecipe!.ingredients.joined(separator: "\n")
     }
     
