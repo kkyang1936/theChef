@@ -9,21 +9,28 @@
 import SwiftUI
 
 struct HistoryView: View {
-    /*
-    @Environment(\.managedObjectContext) private var managedObjectContext
-    @FetchRequest(fetchRequest: RecipeStorage.getAllRecipes()) private var recipeStorage:FetchedResults<RecipeStorage>
- */
     @State private var recipeResults = [SearchResult]()
     
     var body: some View {
         List {
-            ForEach(recipeResults, id: \.self) { result in
-                RecipeResultRow(recipeResult: result)
-            }
+			if (recipeResults.count > 0) {
+				ForEach(recipeResults, id: \.self) { result in
+					RecipeResultRow(recipeResult: result)
+				}
+			} else {
+				HStack {
+					Spacer()
+					Text("No recipe history.")
+                    .font(.title)
+                    .fontWeight(.light)
+                    .lineLimit(2)
+					Spacer()
+				}
+			}
         }.navigationBarTitle("History", displayMode: .inline)
             .onAppear() {
                 DispatchQueue.main.async {
-                    self.recipeResults = RecipeStorage.temporaryHistoryCells()
+					self.recipeResults = RecipeStorage.getAllRecipes()
                 }
         }
     }

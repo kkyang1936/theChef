@@ -8,26 +8,43 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 public class RecipeStorage: NSManagedObject, Identifiable {
     @NSManaged public var name:String?
     @NSManaged public var imageURL:String?
     @NSManaged public var recipeURL:String?
-    
 }
 
 extension RecipeStorage {
-       static func getAllRecipes() -> NSFetchRequest<RecipeStorage> {
+       static func getAllRecipes() -> [SearchResult] {
+		guard let appDelegate =
+		  UIApplication.shared.delegate as? AppDelegate else {
+		  return []
+		}
+		let moc = appDelegate.persistentContainer.viewContext
+		var fetched = [RecipeStorage]()
            let request:NSFetchRequest<RecipeStorage> = RecipeStorage.fetchRequest() as!
                NSFetchRequest<RecipeStorage>
-           
            let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-           
            request.sortDescriptors = [sortDescriptor]
-        
-            return request
+		do {
+			fetched = try moc.fetch(request)
+		} catch {
+			print("Failed to fetch recipe storage data")
+		}
+		
+		return batchToRecipePreview(recipeStorage: fetched)
        }
     
+	static func saveRecipe(searchResult: SearchResult) {
+		guard let appDelegate =
+		  UIApplication.shared.delegate as? AppDelegate else {
+		  return
+		}
+		let moc = appDelegate.persistentContainer.viewContext
+	}
+	
     private func toRecipePreview() -> SearchResult {
         return SearchResult(name: name!, imageURL: URL(string: imageURL!), recipeLink: recipeURL!)
     }

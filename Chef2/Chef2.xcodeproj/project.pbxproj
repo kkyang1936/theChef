@@ -40,7 +40,7 @@
 		B00F1E54243FC72300B30043 /* RecipeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F1E53243FC72300B30043 /* RecipeStorage.swift */; };
 		B00F1E56243FC84300B30043 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F1E55243FC84300B30043 /* HistoryView.swift */; };
 		B02B516E243FCC3B000987DC /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = B02B516D243FCC3B000987DC /* SwiftSoup */; };
-		B02B5171243FCC53000987DC /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = B02B5170243FCC53000987DC /* URLImage */; };
+		B0B7264D244F4AB400778491 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = B0B7264C244F4AB400778491 /* URLImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -250,6 +250,7 @@
 		960CCE80243E68E20054AAC8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = ExecutiveChef;
@@ -540,12 +541,12 @@
 				minimumVersion = 2.3.1;
 			};
 		};
-		B02B516F243FCC53000987DC /* XCRemoteSwiftPackageReference "url-image" */ = {
+		B0B7264B244F4AB400778491 /* XCRemoteSwiftPackageReference "url-image" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.13;
+				minimumVersion = 0.9.15;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -566,9 +567,9 @@
 			package = B02B516C243FCC3B000987DC /* XCRemoteSwiftPackageReference "SwiftSoup" */;
 			productName = SwiftSoup;
 		};
-		B02B5170243FCC53000987DC /* URLImage */ = {
+		B0B7264C244F4AB400778491 /* URLImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B02B516F243FCC53000987DC /* XCRemoteSwiftPackageReference "url-image" */;
+			package = B0B7264B244F4AB400778491 /* XCRemoteSwiftPackageReference "url-image" */;
 			productName = URLImage;
 		};
 /* End XCSwiftPackageProductDependency section */
