@@ -34,6 +34,7 @@
 		9612D4AF243E892500D2AC33 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D4AE243E892500D2AC33 /* ViewExtension.swift */; };
 		966EC75A244E65D600FC79F6 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966EC759244E65D600FC79F6 /* CameraView.swift */; };
 		966EC75C244E678400FC79F6 /* CameraView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966EC75B244E678400FC79F6 /* CameraView2.swift */; };
+		9682E40C2451D88800ECFE28 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9682E40B2451D88800ECFE28 /* URLImage */; };
 		9692C53B244FC78E00019B0D /* ChefAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692C53A244FC78E00019B0D /* ChefAssistant.swift */; };
 		9692C53D244FE1C300019B0D /* AssistantAudioInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692C53C244FE1C300019B0D /* AssistantAudioInteraction.swift */; };
 		96A51F9C244F9F3E0065CED6 /* IngredientRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A51F9B244F9F3E0065CED6 /* IngredientRecognition.swift */; };
@@ -42,7 +43,6 @@
 		B00F1E54243FC72300B30043 /* RecipeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F1E53243FC72300B30043 /* RecipeStorage.swift */; };
 		B00F1E56243FC84300B30043 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F1E55243FC84300B30043 /* HistoryView.swift */; };
 		B02B516E243FCC3B000987DC /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = B02B516D243FCC3B000987DC /* SwiftSoup */; };
-		B0B7264D244F4AB400778491 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = B0B7264C244F4AB400778491 /* URLImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -100,9 +100,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B02B5171243FCC53000987DC /* URLImage in Frameworks */,
 				96A51FA1244FA2E20065CED6 /* VisualRecognitionV3 in Frameworks */,
 				B02B516E243FCC3B000987DC /* SwiftSoup in Frameworks */,
+				9682E40C2451D88800ECFE28 /* URLImage in Frameworks */,
 				96A51F9F244FA2E20065CED6 /* AssistantV2 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,9 +242,9 @@
 			name = Chef2;
 			packageProductDependencies = (
 				B02B516D243FCC3B000987DC /* SwiftSoup */,
-				B02B5170243FCC53000987DC /* URLImage */,
 				96A51F9E244FA2E20065CED6 /* AssistantV2 */,
 				96A51FA0244FA2E20065CED6 /* VisualRecognitionV3 */,
+				9682E40B2451D88800ECFE28 /* URLImage */,
 			);
 			productName = Chef2;
 			productReference = 960CCE88243E68E20054AAC8 /* Chef2.app */;
@@ -277,8 +277,8 @@
 			mainGroup = 960CCE7F243E68E20054AAC8;
 			packageReferences = (
 				B02B516C243FCC3B000987DC /* XCRemoteSwiftPackageReference "SwiftSoup" */,
-				B02B516F243FCC53000987DC /* XCRemoteSwiftPackageReference "url-image" */,
 				96A51F9D244FA2E20065CED6 /* XCRemoteSwiftPackageReference "swift-sdk" */,
+				9682E40A2451D88800ECFE28 /* XCRemoteSwiftPackageReference "url-image" */,
 			);
 			productRefGroup = 960CCE89243E68E20054AAC8 /* Products */;
 			projectDirPath = "";
@@ -533,6 +533,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9682E40A2451D88800ECFE28 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.11;
+			};
+		};
 		96A51F9D244FA2E20065CED6 /* XCRemoteSwiftPackageReference "swift-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/watson-developer-cloud/swift-sdk.git";
@@ -549,17 +557,14 @@
 				minimumVersion = 2.3.1;
 			};
 		};
-		B0B7264B244F4AB400778491 /* XCRemoteSwiftPackageReference "url-image" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.15;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9682E40B2451D88800ECFE28 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9682E40A2451D88800ECFE28 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
 		96A51F9E244FA2E20065CED6 /* AssistantV2 */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 96A51F9D244FA2E20065CED6 /* XCRemoteSwiftPackageReference "swift-sdk" */;
@@ -574,11 +579,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B02B516C243FCC3B000987DC /* XCRemoteSwiftPackageReference "SwiftSoup" */;
 			productName = SwiftSoup;
-		};
-		B0B7264C244F4AB400778491 /* URLImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B0B7264B244F4AB400778491 /* XCRemoteSwiftPackageReference "url-image" */;
-			productName = URLImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 
