@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UserNotifications
 class Util {
     
     //interpret the string from watson
@@ -26,7 +27,7 @@ class Util {
             switch String(paramsList[0]) {
             case "readStep":
                 let step = Int(paramsList[1]) ?? 0
-                return readStep(n: step)
+				return readStep(n: step)
             case "listIngredients":
                 return listIngredients()
             case "timerRequest":
@@ -40,13 +41,10 @@ class Util {
                     }
                 }
                 return ingred_list.joined(separator: "\n")
-            case "getTimer":
-                //let inprogress = "Working on this part";
-				//TODO
-                return "getTimer"
+            case "timerSet":
+				return setTimer(endTime: String(paramsList[1]))
             case "getIngredients":
                 return getIngredients()
-                //getTimer(timer: String(paramsList[1]))
             default:
                 //did not get what youre looking for
                 return "i did not get your response"            }
@@ -106,7 +104,40 @@ class Util {
 		}
         return lastOpenRecipe!.ingredients.joined(separator: "\n")
     }
+	
+	
+	private static func setTimer(endTime: String) -> String {
+		let formatter = DateFormatter()
+		formatter.locale = Locale(identifier: "un_US_POSIX")
+		formatter.dateFormat = "HH:mm:ss"
+		guard let timerEnd = formatter.date(from: endTime) else {
+			return "Sorry, I couldn't set a timer properly."
+		}
+		if timerEnd < Date() {
+			return "Your timer has already ended."
+		}
+		else {
+			registerLocalTimerNotification(displayAt: timerEnd)
+		}
+		return "Okay, I set a timer."
+	}
     
+	private static func registerLocalTimerNotification(displayAt: Date) {
+		let content = UNMutableNotificationContent()
+		content.title = "Time's up!"
+		content.body = "The timer you set with Chef has ended"
+		let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents(in: Calendar.current.timeZone, from: displayAt), repeats: false)
+		let uuidString = UUID().uuidString
+		let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+		let notificationCenter = UNUserNotificationCenter.current()
+		notificationCenter.add(request) { (error) in
+			if error != nil {
+				TextToSpeech().speak(words: "The notification for your timer could not be scheduled.")
+				print(error!.localizedDescription)
+			}
+		}
+	}
+	
     /*
      ////IN PROGRESS
      private func getTimer(timer: String){
