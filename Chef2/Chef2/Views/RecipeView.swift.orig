@@ -107,7 +107,11 @@ struct RecipeView: View {
                 DispatchQueue.main.async {
                     self.recipe = self.res.recipeStruct
                     lastOpenRecipe = self.recipe
+<<<<<<< HEAD
 					RecipeStorage.saveRecipe(recipe: self.res)
+=======
+					//TODO Add recipe to history
+>>>>>>> voiceassistant
                 }
             })
     }
