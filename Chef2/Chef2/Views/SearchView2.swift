@@ -94,7 +94,6 @@ struct SearchBar: View{
                             self.showCancelButton = isEditing
                 }, onCommit: {
                     self.showCancelButton = false
-                    //print("Search: " + self.searchText)
                 }).foregroundColor(.primary)
                 Button(action: {
                     self.searchText = ""
@@ -162,7 +161,6 @@ struct SearchView2: View {
                         List {
                             HStack {
                                 TextField("Add an ingredient to the search...", text: self.$addingIngredient, onCommit: {
-                                    print("Ingredient" + self.addingIngredient)
                                     if (!self.addingIngredient.isEmpty) {
                                         self.ingredients.append(self.addingIngredient)
                                         self.addingIngredient = ""
@@ -187,9 +185,6 @@ struct SearchView2: View {
                         HStack {
                             Spacer()
                             Button(action: {
-                                print("Search")
-                                print(self.searchString)
-                                print(self.ingredients)
                                 //TODO: Push the RecipeResultsView onto the NavigationView stack
                                 self.resultsView = ResultsView(recipeName: self.searchString, ingredientList: self.ingredients)
                                 self.navigate = true;

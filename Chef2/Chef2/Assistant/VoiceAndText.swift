@@ -78,7 +78,6 @@ class SpeechToText {
                 
                 // Update the text view with the results.
                 self.transcriptionOutput = result.bestTranscription.formattedString
-                print("transcripting:" + self.transcriptionOutput)
                 isFinal = result.isFinal
                 if isFinal {
                     //self.finishState = isFinal
@@ -90,7 +89,7 @@ class SpeechToText {
             }
             if isFinal{
                 self.stopRecording()
-                print("result:" + self.returnOutput)
+                print("transcription: " + self.returnOutput)
                 callback(self.returnOutput)
                 
                 

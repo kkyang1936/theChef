@@ -73,7 +73,7 @@ struct ChatView: View {
     }
     
     func sendMessage() {
-        chatHelper.sendMessage(Message(content: typingMessage, user: DataSource.currentUser))
+		chatHelper.addMessageToHistory(Message(content: typingMessage, user: DataSource.currentUser))
         chatHelper.sendMessage(text: typingMessage)
         typingMessage = ""
     }

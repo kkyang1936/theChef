@@ -10,8 +10,8 @@ import SwiftUI
 
 struct RecipeView: View {
     @State private var recipe: Recipe? = nil
+	@State private var voiceButtonDisabled = false
     private var res: SearchResult
-    @State private var transcribedText=""
     
     init(result: SearchResult) {
         self.res = result
@@ -65,14 +65,33 @@ struct RecipeView: View {
                 }
             }
             Button(action: {
-                
-                SpeechToText().recognize(){(result)in
-                    //self.transcribedText = result
-                    self.transcribedText = result
-                    print("final result:" + result)
-                }
-                
-                
+				//TODO
+				DispatchQueue.main.async {
+					//Play an audio cue
+					AssistantAudioInteraction.playStartAudioCue()
+					//Disable button
+					self.voiceButtonDisabled = true
+					//Transcribe speech to text
+					//Send result to watson assistant
+					//Read response from assistant aloud
+					
+					AssistantAudioInteraction.sendVoiceToAssistantAdvanced(onVoiceTranscribed: {_ in
+						AssistantAudioInteraction.playEndAudioCue()
+					}, onWatsonResponse: { response, error in
+						self.voiceButtonDisabled = false
+						guard let message = response?.result else {
+							print("Watson message error: " + (error?.localizedDescription ?? "unknown error"))
+							TextToSpeech().speak(words: "Sorry, I can't help right now because of " + (error?.failureReason ?? "some error"))
+							return
+						}
+						message.output.generic?.forEach { response in
+							print(response.text ?? "No response")
+							let correctResponse = Util.interpret(response: response.text ?? "Wrong response")
+							TextToSpeech().speak(words: correctResponse)
+							//self.sendMessage(Message(content: correctResponse, user: DataSource.Watson))
+						}
+					})
+				}
                 
             }) {
                 Image("Hat-icon")
@@ -81,28 +100,14 @@ struct RecipeView: View {
                     .frame(width: 100)
                 
             }
-            /*Button(action: {
-                
-                TextToSpeech().speak(words: self.transcribedText)
-                print(self.transcribedText)
-            }) {
-                Text("playback")
-                .fontWeight(.semibold)
-                .font(.title)
-                    .foregroundColor(.yellow)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.yellow, lineWidth: 5))
-                
-            }*/
+			.disabled(self.voiceButtonDisabled)
             }
         }.navigationBarTitle("View Recipe", displayMode: .inline)
             .onAppear(perform: {
                 DispatchQueue.main.async {
                     self.recipe = self.res.recipeStruct
                     lastOpenRecipe = self.recipe
-					RecipeStorage.saveRecipe(recipe: self.res)
+					//TODO Add recipe to history
                 }
             })
     }
