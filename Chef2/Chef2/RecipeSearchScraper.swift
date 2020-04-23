@@ -53,7 +53,7 @@ class RecipeSearchScraper {
         } catch {
             print("Unable to parse article fixed-recipe-card")
         }
-        print("name: ", name, ", imageURL: ", imageURL, ", recipeURL: ", recipeURL)
+        //print("name: ", name, ", imageURL: ", imageURL, ", recipeURL: ", recipeURL)
         return SearchResult(name: name, imageURL: URL(string: imageURL)!, recipeLink: recipeURL)
     }
 }

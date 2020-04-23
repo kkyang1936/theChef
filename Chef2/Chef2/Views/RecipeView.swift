@@ -78,8 +78,10 @@ struct RecipeView: View {
 					AssistantAudioInteraction.sendVoiceToAssistantAdvanced(onVoiceTranscribed: {_ in
 						AssistantAudioInteraction.playEndAudioCue()
 					}, onWatsonResponse: { response, error in
+						self.voiceButtonDisabled = false
 						guard let message = response?.result else {
 							print("Watson message error: " + (error?.localizedDescription ?? "unknown error"))
+							TextToSpeech().speak(words: "Sorry, I can't help right now because of " + (error?.failureReason ?? "some error"))
 							return
 						}
 						message.output.generic?.forEach { response in
