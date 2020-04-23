@@ -14,6 +14,7 @@ class ChefAssistant {
     private static let apiKey = "m4NfBL8geisdJ8g5USgAmCVdiHjl1FTIzDZNK2WAg2Ru"
     private static let apiVersion = "2020-04-01"
     private static let serviceURL = "https://api.us-south.assistant.watson.cloud.ibm.com/instances/b41046cc-67dd-4907-84cd-498c6630ffb4"
+	private static let timezone = "America/New_York"
     
     static var instance: ChefAssistant {
         get {
@@ -123,14 +124,34 @@ class ChefAssistant {
     }
     
     private func _sendMessage(_ msg: String?, completionHandler: @escaping (WatsonResponse<MessageResponse>?, WatsonError?) -> Void) {
+		let messageContext = MessageContext(global: MessageContextGlobal(system: MessageContextGlobalSystem(timezone: ChefAssistant.timezone))) //referenceTime
         if self.sessionID == "" {
             self._beginSession(getWelcomeMessage: msg != nil)
         }
         if msg == nil {
-            self.assistant.message(assistantID: ChefAssistant.assistantID, sessionID: self.sessionID, completionHandler: completionHandler)
+            self.assistant.message(assistantID: ChefAssistant.assistantID, sessionID: self.sessionID, context: messageContext, completionHandler: completionHandler)
         } else {
-            let messageInput = MessageInput(messageType: "text", text: msg!)
-            self.assistant.message(assistantID: ChefAssistant.assistantID, sessionID: self.sessionID, input: messageInput, completionHandler: completionHandler)
+            let messageInput = MessageInput(messageType: "text", text: correctSysTimeString(msg!))
+			self.assistant.message(assistantID: ChefAssistant.assistantID, sessionID: self.sessionID, input: messageInput, context: messageContext, completionHandler: completionHandler)
         }
     }
+	
+	private func correctSysTimeString(_ originalQuery: String) -> String {
+		if originalQuery.lowercased().contains("timer") && !originalQuery.lowercased().contains("from now") {
+			let timeunits = ["hour", "hours", "minute", "minutes", "second", "seconds", "day", "days", "month", "months", "year", "years"]
+			var queryCopy = originalQuery
+			queryCopy.removeAll(where: {c in c == "."})
+			var originalQueryWords = originalQuery.split(separator: " ")
+			var insertPosition = originalQueryWords.count
+			for (index, word) in originalQueryWords.enumerated() {
+				if timeunits.contains(String(word).lowercased()) {
+					insertPosition = index + 1
+				}
+			}
+			originalQueryWords.insert("from now", at: insertPosition)
+			return originalQueryWords.joined(separator: " ")
+		} else {
+			return originalQuery
+		}
+	}
 }

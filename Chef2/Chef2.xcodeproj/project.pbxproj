@@ -32,6 +32,7 @@
 		9612D4AB243E88B100D2AC33 /* RecipeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D4AA243E88B100D2AC33 /* RecipeSearch.swift */; };
 		9612D4AD243E88DB00D2AC33 /* RecipeSearchScraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D4AC243E88DB00D2AC33 /* RecipeSearchScraper.swift */; };
 		9612D4AF243E892500D2AC33 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D4AE243E892500D2AC33 /* ViewExtension.swift */; };
+		962506CB245243E000CDE797 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962506CA245243E000CDE797 /* Notification.swift */; };
 		966EC75A244E65D600FC79F6 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966EC759244E65D600FC79F6 /* CameraView.swift */; };
 		966EC75C244E678400FC79F6 /* CameraView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966EC75B244E678400FC79F6 /* CameraView2.swift */; };
 		9682E40C2451D88800ECFE28 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9682E40B2451D88800ECFE28 /* URLImage */; };
@@ -86,6 +87,7 @@
 		9612D4AA243E88B100D2AC33 /* RecipeSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearch.swift; sourceTree = "<group>"; };
 		9612D4AC243E88DB00D2AC33 /* RecipeSearchScraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchScraper.swift; sourceTree = "<group>"; };
 		9612D4AE243E892500D2AC33 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		962506CA245243E000CDE797 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		966EC759244E65D600FC79F6 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		966EC75B244E678400FC79F6 /* CameraView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView2.swift; sourceTree = "<group>"; };
 		9692C53A244FC78E00019B0D /* ChefAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefAssistant.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				B00F1E53243FC72300B30043 /* RecipeStorage.swift */,
 				960CCEA9243E6A860054AAC8 /* Scraper.swift */,
 				9612D49F243E876A00D2AC33 /* Util.swift */,
+				962506CA245243E000CDE797 /* Notification.swift */,
 				960CCEA2243E69C10054AAC8 /* Views */,
 				960CCE94243E68E30054AAC8 /* Assets.xcassets */,
 				960CCE99243E68E30054AAC8 /* LaunchScreen.storyboard */,
@@ -333,6 +336,7 @@
 				9612D4AD243E88DB00D2AC33 /* RecipeSearchScraper.swift in Sources */,
 				B00F1E54243FC72300B30043 /* RecipeStorage.swift in Sources */,
 				960CCE91243E68E20054AAC8 /* Chef2.xcdatamodeld in Sources */,
+				962506CB245243E000CDE797 /* Notification.swift in Sources */,
 				9612D4A4243E880500D2AC33 /* NetworkImage.swift in Sources */,
 				966EC75A244E65D600FC79F6 /* CameraView.swift in Sources */,
 				960CCEB4243E6B6B0054AAC8 /* ChatHelper.swift in Sources */,

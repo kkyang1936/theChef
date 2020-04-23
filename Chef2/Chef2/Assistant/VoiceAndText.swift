@@ -50,12 +50,12 @@ class SpeechToText {
         do{
             try audioSession.setCategory(.playAndRecord, mode: .measurement, options: .duckOthers)
         }catch{
-            print(error)
+            //print(error)
         }
         do{
             try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         }catch{
-            print(error)
+            //print(error)
         }
         let inputNode = audioEngine.inputNode
         
@@ -99,7 +99,7 @@ class SpeechToText {
             }
             if error != nil {
                 self.stopRecording()
-				print(error!)
+				//print(error!)
                 //call back
                 self.returnOutput = "error occur, script transcription failed"
                 callback(self.returnOutput)
@@ -116,7 +116,7 @@ class SpeechToText {
         do{
             try audioEngine.start()
         }catch{
-            print(error)
+            //print(error)
         }
         
 
@@ -162,9 +162,9 @@ class TextToSpeech{
 		
         let utterance = AVSpeechUtterance(string: words)
 		utterance.voice = voiceToUse
-        print("voice using is")
+        //print("voice using is")
 		if utterance.voice != nil {
-			print(utterance.voice!)
+			//print(utterance.voice!)
 		}
         //utterance.voice = AVSpeechSynthesisVoice(language:"en-US")
         utterance.rate = 0.45

@@ -8,14 +8,20 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { accepted, error in
+			if !accepted {
+				print("User disabled notifications")
+			}
+		}
         return true
     }
 
@@ -75,6 +81,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
+	
+	func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+		completionHandler([.alert, .badge, .sound])
+	}
+	
+	func registerLocalTimerNotification(displayAt: Date) {
+		
+		let calendar = Calendar.current
+		let components = calendar.dateComponents(in: .current, from: displayAt)
+		let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute, second: components.second)
+		let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
+		let content = UNMutableNotificationContent()
+		content.title = "Time's up!"
+		content.body = "The timer you set with Chef has ended"
+		content.sound = UNNotificationSound.default
+		let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+		UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+		UNUserNotificationCenter.current().add(request) {(error) in
+			if let error = error {
+				print("Notification schedule error: " + error.localizedDescription)
+			}
+		}
+		
+		/*
+		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+			if let error = error {
+				print(error.localizedDescription)
+			} else if granted {
+				let content = UNMutableNotificationContent()
+				content.title = "Time's up!"
+				content.body = "The timer you set with Chef has ended"
+				content.sound = UNNotificationSound.default
+				let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents(in: Calendar.current.timeZone, from: displayAt), repeats: false)
+				let uuidString = UUID().uuidString
+				let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+				let notificationCenter = UNUserNotificationCenter.current()
+				notificationCenter.add(request) { (error) in
+					if error != nil {
+						TextToSpeech().speak(words: "The notification for your timer could not be scheduled.")
+						print(error!.localizedDescription)
+					}
+				}
+			}
+		}
+		*/
+	}
 
 }
 
