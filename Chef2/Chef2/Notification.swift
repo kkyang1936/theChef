@@ -13,6 +13,8 @@ struct NotificationManager {
 	static func registerLocalTimerNotification(displayAt: Date) {
 		let delegate = UIApplication.shared.delegate as? AppDelegate
 		delegate?.registerLocalTimerNotification(displayAt: displayAt)
+		
+		//TODO schedule a Timer that executes if the app wasn't closed.
 	}
 }
 

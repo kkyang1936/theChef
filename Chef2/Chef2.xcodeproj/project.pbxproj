@@ -33,6 +33,7 @@
 		9612D4AD243E88DB00D2AC33 /* RecipeSearchScraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D4AC243E88DB00D2AC33 /* RecipeSearchScraper.swift */; };
 		9612D4AF243E892500D2AC33 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D4AE243E892500D2AC33 /* ViewExtension.swift */; };
 		962506CB245243E000CDE797 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962506CA245243E000CDE797 /* Notification.swift */; };
+		9626268E245254FE007C3884 /* BEEP.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 9626268D245254FD007C3884 /* BEEP.WAV */; };
 		966EC75A244E65D600FC79F6 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966EC759244E65D600FC79F6 /* CameraView.swift */; };
 		966EC75C244E678400FC79F6 /* CameraView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966EC75B244E678400FC79F6 /* CameraView2.swift */; };
 		9682E40C2451D88800ECFE28 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9682E40B2451D88800ECFE28 /* URLImage */; };
@@ -88,6 +89,7 @@
 		9612D4AC243E88DB00D2AC33 /* RecipeSearchScraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchScraper.swift; sourceTree = "<group>"; };
 		9612D4AE243E892500D2AC33 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		962506CA245243E000CDE797 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		9626268D245254FD007C3884 /* BEEP.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BEEP.WAV; sourceTree = "<group>"; };
 		966EC759244E65D600FC79F6 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		966EC75B244E678400FC79F6 /* CameraView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView2.swift; sourceTree = "<group>"; };
 		9692C53A244FC78E00019B0D /* ChefAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefAssistant.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		960CCE8A243E68E20054AAC8 /* Chef2 */ = {
 			isa = PBXGroup;
 			children = (
+				9626268D245254FD007C3884 /* BEEP.WAV */,
 				960CCE8B243E68E20054AAC8 /* AppDelegate.swift */,
 				960CCE8D243E68E20054AAC8 /* SceneDelegate.swift */,
 				960CCEAE243E6B0B0054AAC8 /* Assistant */,
@@ -297,6 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9626268E245254FE007C3884 /* BEEP.WAV in Resources */,
 				960CCE9B243E68E30054AAC8 /* LaunchScreen.storyboard in Resources */,
 				960CCE98243E68E30054AAC8 /* Preview Assets.xcassets in Resources */,
 				960CCE95243E68E30054AAC8 /* Assets.xcassets in Resources */,
