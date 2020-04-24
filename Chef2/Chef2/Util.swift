@@ -46,7 +46,7 @@ class Util {
                 return getIngredients()
             default:
                 //did not get what youre looking for
-                return "i did not get your response"            }
+                return "I'm not sure how to do that."            }
             
         }else{
             //just a regular watson response
@@ -105,17 +105,6 @@ class Util {
     }
 	
 	private static func setTimer(endTime: String) -> String {
-		/*
-		let formatter = DateFormatter()
-		formatter.locale = Locale(identifier: "un_US_POSIX")
-		formatter.dateFormat = "HH:mm:ss"
-		formatter.timeZone = Calendar.current.timeZone
-		guard var timerEnd = formatter.date(from: endTime) else {
-			return "Sorry, I couldn't set a timer properly."
-		}
-		
-		timerEnd = Date().addingTimeInterval(timerEnd.timeIntervalSinceReferenceDate)
-		*/
 		let endTimeSplit = endTime.split(separator: ":")
 		guard
 			let hour = Int(String(endTimeSplit[0])),
