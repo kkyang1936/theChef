@@ -34,7 +34,6 @@
 		9612D4AF243E892500D2AC33 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612D4AE243E892500D2AC33 /* ViewExtension.swift */; };
 		962506CB245243E000CDE797 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962506CA245243E000CDE797 /* Notification.swift */; };
 		9626268E245254FE007C3884 /* BEEP.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 9626268D245254FD007C3884 /* BEEP.WAV */; };
-		966EC75A244E65D600FC79F6 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966EC759244E65D600FC79F6 /* CameraView.swift */; };
 		966EC75C244E678400FC79F6 /* CameraView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966EC75B244E678400FC79F6 /* CameraView2.swift */; };
 		9682E40C2451D88800ECFE28 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9682E40B2451D88800ECFE28 /* URLImage */; };
 		9692C53B244FC78E00019B0D /* ChefAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692C53A244FC78E00019B0D /* ChefAssistant.swift */; };
@@ -90,7 +89,6 @@
 		9612D4AE243E892500D2AC33 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		962506CA245243E000CDE797 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		9626268D245254FD007C3884 /* BEEP.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BEEP.WAV; sourceTree = "<group>"; };
-		966EC759244E65D600FC79F6 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		966EC75B244E678400FC79F6 /* CameraView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView2.swift; sourceTree = "<group>"; };
 		9692C53A244FC78E00019B0D /* ChefAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefAssistant.swift; sourceTree = "<group>"; };
 		9692C53C244FE1C300019B0D /* AssistantAudioInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantAudioInteraction.swift; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 				960CCEC1243E6E0F0054AAC8 /* RecipeView.swift */,
 				9612D4A3243E880500D2AC33 /* NetworkImage.swift */,
 				B00F1E55243FC84300B30043 /* HistoryView.swift */,
-				966EC759244E65D600FC79F6 /* CameraView.swift */,
 				966EC75B244E678400FC79F6 /* CameraView2.swift */,
 			);
 			path = Views;
@@ -342,7 +339,6 @@
 				960CCE91243E68E20054AAC8 /* Chef2.xcdatamodeld in Sources */,
 				962506CB245243E000CDE797 /* Notification.swift in Sources */,
 				9612D4A4243E880500D2AC33 /* NetworkImage.swift in Sources */,
-				966EC75A244E65D600FC79F6 /* CameraView.swift in Sources */,
 				960CCEB4243E6B6B0054AAC8 /* ChatHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

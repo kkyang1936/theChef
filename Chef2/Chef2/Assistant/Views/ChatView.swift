@@ -29,26 +29,26 @@ struct ChatView: View {
                         
                     }
                 }
-                HStack {
-                    TextField("Message...", text: $typingMessage)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .frame(minHeight: CGFloat(30))
-                    Button(action: sendMessage) {
-                        Text("Send")
-                    }
-                }.frame(minHeight: CGFloat(50)).padding()
-                VStack{
-                    Button(action:{
-                        self.recordAndSend()
-                    }) {
-                        Text("Record And Send")
-                    }
-                    Text("transcription: " + self.transcribedText)
-                        .font(.system(size: 12, weight: .light, design: .serif))
-                        .italic()
-                    
-                    
-                }
+				VStack {
+					HStack {
+						Button(action:
+							self.recordAndSend
+						) {
+							HStack {
+								Text("Voice")
+								Image(systemName: "mic.circle.fill")
+								.padding(.trailing, 5)
+							}
+							
+						}
+						TextField("Message...", text: $typingMessage)
+							.textFieldStyle(RoundedBorderTextFieldStyle())
+							.frame(minHeight: CGFloat(30))
+						Button(action: sendMessage) {
+							Text("Send")
+						}
+					}.frame(minHeight: CGFloat(50)).padding([.leading, .trailing, .bottom])
+				}
                 
             }.navigationBarTitle(Text(DataSource.Watson.name), displayMode: .inline)
             .padding(.bottom, keyboard.currentHeight)
