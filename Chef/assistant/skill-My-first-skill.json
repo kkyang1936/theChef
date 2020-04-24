@@ -4,9 +4,6 @@
       "intent": "next_step",
       "examples": [
         {
-          "text": "Chef, what is the next step in the recipe?"
-        },
-        {
           "text": "what's the next step"
         },
         {
@@ -26,6 +23,9 @@
         },
         {
           "text": "Chef, please tell me the next step in the recipe"
+        },
+        {
+          "text": "Chef, what is the next step in the recipe?"
         },
         {
           "text": "What is the next step?"
@@ -121,7 +121,19 @@
           ]
         },
         {
-          "text": "do I need asparagus for this recipe",
+          "text": "Do I need apples?",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                10,
+                16
+              ]
+            }
+          ]
+        },
+        {
+          "text": "do I need asparagus for this recipe?",
           "mentions": [
             {
               "entity": "Ingredients",
@@ -136,22 +148,136 @@
       "description": "ask chef if you need a certain ingredient"
     },
     {
+      "intent": "read_step_n",
+      "examples": [
+        {
+          "text": "What is step 4?"
+        },
+        {
+          "text": "Read me step 1"
+        },
+        {
+          "text": "What is step seven of this recipe?"
+        },
+        {
+          "text": "Can you read me step 8"
+        },
+        {
+          "text": "What is the first step?",
+          "mentions": [
+            {
+              "entity": "OrdinalNumber",
+              "location": [
+                12,
+                17
+              ]
+            }
+          ]
+        },
+        {
+          "text": "What is the second step?",
+          "mentions": [
+            {
+              "entity": "OrdinalNumber",
+              "location": [
+                12,
+                18
+              ]
+            }
+          ]
+        },
+        {
+          "text": "What is the third step?",
+          "mentions": [
+            {
+              "entity": "OrdinalNumber",
+              "location": [
+                12,
+                17
+              ]
+            }
+          ]
+        },
+        {
+          "text": "What's the fifth step?",
+          "mentions": [
+            {
+              "entity": "OrdinalNumber",
+              "location": [
+                11,
+                16
+              ]
+            }
+          ]
+        },
+        {
+          "text": "what is the ninth step in this recipe",
+          "mentions": [
+            {
+              "entity": "OrdinalNumber",
+              "location": [
+                12,
+                17
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Read the seventh step",
+          "mentions": [
+            {
+              "entity": "OrdinalNumber",
+              "location": [
+                9,
+                16
+              ]
+            }
+          ]
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "get_timer",
+      "examples": [
+        {
+          "text": "Chef, when is the timer up"
+        },
+        {
+          "text": "How much longer do I have?"
+        },
+        {
+          "text": "What is the timer at?"
+        },
+        {
+          "text": "How long on the timer?"
+        },
+        {
+          "text": "How much longer?"
+        },
+        {
+          "text": "What time is left on the timer?"
+        }
+      ],
+      "description": "Get the current duration of the timer."
+    },
+    {
+      "intent": "decrement_step",
+      "examples": [
+        {
+          "text": "{{decrement steps"
+        },
+        {
+          "text": "{{decrement step"
+        }
+      ],
+      "description": ""
+    },
+    {
       "intent": "ingredients",
       "examples": [
         {
-          "text": "what foods do I need"
-        },
-        {
-          "text": "chef, what ingred"
-        },
-        {
-          "text": "what ingredients are in the recipe"
-        },
-        {
-          "text": "what ingredients do I need for this recipe"
-        },
-        {
-          "text": "what things go into this recipe"
+          "text": "what are the ingredients"
         },
         {
           "text": "what foods are required for this recipe"
@@ -160,7 +286,22 @@
           "text": "what do I need for this recipe"
         },
         {
-          "text": "what ingredients do I need"
+          "text": "chef, what ingredients do I need?"
+        },
+        {
+          "text": "what ingredients do I need?"
+        },
+        {
+          "text": "what ingredients do I need for this recipe?"
+        },
+        {
+          "text": "what things go into this recipe?"
+        },
+        {
+          "text": "what ingredients are in the recipe?"
+        },
+        {
+          "text": "what foods do I need?"
         }
       ],
       "description": "tells the user the ingredients of the recipe"
@@ -169,31 +310,19 @@
       "intent": "Ingredient_Quantity",
       "examples": [
         {
-          "text": "How much salt is required?",
+          "text": "How much sugar should I add?",
           "mentions": [
             {
               "entity": "Ingredients",
               "location": [
                 9,
-                13
+                14
               ]
             }
           ]
         },
         {
-          "text": "How many eggs I need?",
-          "mentions": [
-            {
-              "entity": "Ingredients",
-              "location": [
-                9,
-                13
-              ]
-            }
-          ]
-        },
-        {
-          "text": "How much beef I need to put in?",
+          "text": "How much milk I need for the recipe?",
           "mentions": [
             {
               "entity": "Ingredients",
@@ -217,25 +346,13 @@
           ]
         },
         {
-          "text": "How many potatoes I need to use?",
+          "text": "How much beef I need to put in?",
           "mentions": [
             {
               "entity": "Ingredients",
               "location": [
                 9,
-                17
-              ]
-            }
-          ]
-        },
-        {
-          "text": "How much sugar should I add?",
-          "mentions": [
-            {
-              "entity": "Ingredients",
-              "location": [
-                9,
-                14
+                13
               ]
             }
           ]
@@ -253,7 +370,19 @@
           ]
         },
         {
-          "text": "How much milk I need?",
+          "text": "How many potatoes I need to use?",
+          "mentions": [
+            {
+              "entity": "Ingredients",
+              "location": [
+                9,
+                17
+              ]
+            }
+          ]
+        },
+        {
+          "text": "How many eggs do I need?",
           "mentions": [
             {
               "entity": "Ingredients",
@@ -277,53 +406,68 @@
           ]
         }
       ],
-      "description": "Ask for quantity needed for the recipe"
+      "description": "Tell the user quantity needed for the recipe"
     },
     {
-      "intent": "first_step",
+      "intent": "set_a_timer",
       "examples": [
         {
-          "text": "how should I begin?"
+          "text": "Chef, set a timer for 3 hours"
         },
         {
-          "text": "where should I start?"
+          "text": "please set a timer for 5 minutes"
         },
         {
-          "text": "what's the first thing to do?"
+          "text": "set a timer for 20 minutes"
         },
         {
-          "text": "please let me know the first step in the recipe"
+          "text": "set the stopwatch to 10 minutes"
         },
         {
-          "text": "please tell me the first step in the recipe"
+          "text": "set a timer for 40 minutes"
         },
         {
-          "text": "I would like to know the first step"
+          "text": "set a timer for 3 hours from now"
         },
         {
-          "text": "hello, what is the first step in the recipe?"
+          "text": "set a timer for half an hour from now"
         },
         {
-          "text": "chef, can you tell me the first step?"
+          "text": "set a timer for 20 minutes from now"
         },
         {
-          "text": "what is the first step in the recipe?"
+          "text": "Chef, set a timer"
         },
         {
-          "text": "what should I do first?"
+          "text": "please set a timer"
+        },
+        {
+          "text": "Chef, set a timer for 5 hours"
+        },
+        {
+          "text": "set an hour long timer"
+        },
+        {
+          "text": "set a timer for 10 minutes"
+        },
+        {
+          "text": "chef can you please set a timer"
+        },
+        {
+          "text": "chef please set a timer"
+        },
+        {
+          "text": "Chef, please set the clock for 20 minutes"
+        },
+        {
+          "text": "Chef, set a clock for 5 minutes"
         }
       ],
-      "description": "tells the user the first step in the recipe"
+      "description": "Chef, set a timer"
     },
     {
       "intent": "previous_step",
       "examples": [
-        {
-          "text": "what was before"
-        },
-        {
-          "text": "can you go back to the last step"
-        },
         {
           "text": "what was the previous step"
         },
@@ -341,48 +485,171 @@
         },
         {
           "text": "I forgot the last step. can you tell me it again?"
+        },
+        {
+          "text": "what was before"
+        },
+        {
+          "text": "can you go back to the last step"
+        },
+        {
+          "text": "what is the last step"
         }
       ],
       "description": "tells the previous step"
     },
     {
-      "intent": "last_step",
+      "intent": "current_step",
       "examples": [
         {
-          "text": "tell me the last step"
+          "text": "What is the current step?"
         },
         {
-          "text": "please tell me what to do last"
+          "text": "What does the current step say?"
         },
         {
-          "text": "chef, what is the last step?"
+          "text": "Can you tell me what to do again?"
         },
         {
-          "text": "how do I finish the recipe"
+          "text": "read the step we are on right now"
         },
         {
-          "text": "chef, please tell me what to do lastly"
+          "text": "What should I do now"
         },
         {
-          "text": "what is the last thing to do in this recipe"
+          "text": "What do I do again?"
         },
         {
-          "text": "what is the final step in the recipe"
-        },
-        {
-          "text": "tell me the final step"
-        },
-        {
-          "text": "what is the last step in the recipe"
+          "text": "What am I supposed to do?"
         }
-      ],
-      "description": "tells the user the last step in the recipe"
+      ]
     }
   ],
   "entities": [
     {
+      "entity": "OrdinalNumber",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "fifth",
+          "synonyms": [
+            "5th"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "tenth",
+          "synonyms": [
+            "10th"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "first",
+          "synonyms": [
+            "1st"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "sixth",
+          "synonyms": [
+            "6th"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "seventh",
+          "synonyms": [
+            "7th"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "eighth",
+          "synonyms": [
+            "8th"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "second",
+          "synonyms": [
+            "2nd"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "third",
+          "synonyms": [
+            "3rd"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "fourth",
+          "synonyms": [
+            "4th"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "ninth",
+          "synonyms": [
+            "9th"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-number",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
       "entity": "Ingredients",
       "values": [
+        {
+          "type": "synonyms",
+          "value": "chicken",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "asparagus",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "salmon",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "yams",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "apples",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "lamb",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "banana",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "bell peppers",
+          "synonyms": []
+        },
         {
           "type": "synonyms",
           "value": "water",
@@ -432,33 +699,13 @@
           "type": "synonyms",
           "value": "butter",
           "synonyms": []
-        },
-        {
-          "type": "synonyms",
-          "value": "chicken",
-          "synonyms": []
-        },
-        {
-          "type": "synonyms",
-          "value": "asparagus",
-          "synonyms": []
-        },
-        {
-          "type": "synonyms",
-          "value": "salmon",
-          "synonyms": []
-        },
-        {
-          "type": "synonyms",
-          "value": "yams",
-          "synonyms": []
-        },
-        {
-          "type": "synonyms",
-          "value": "bell peppers",
-          "synonyms": []
         }
       ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-time",
+      "values": [],
       "fuzzy_match": true
     }
   ],
@@ -469,6 +716,308 @@
     }
   },
   "dialog_nodes": [
+    {
+      "type": "response_condition",
+      "output": {
+        "text": {
+          "values": [],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_9_1580856526446",
+      "disabled": true,
+      "dialog_node": "response_10_1580857628977"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{readStep,5"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1587689303888",
+      "context": {
+        "step": 5
+      },
+      "conditions": "@OrdinalNumber:sixth",
+      "dialog_node": "node_3_1587691852660",
+      "previous_sibling": "node_8_1587691760840"
+    },
+    {
+      "type": "standard",
+      "title": "Read Step fourth",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{readStep,3"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1587689303888",
+      "context": {
+        "step": 3
+      },
+      "conditions": "@OrdinalNumber:fourth",
+      "dialog_node": "node_8_1587691734281",
+      "previous_sibling": "node_8_1587691709456"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{readStep,4"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1587689303888",
+      "context": {
+        "step": 4
+      },
+      "conditions": "@OrdinalNumber:fifth",
+      "dialog_node": "node_8_1587691760840",
+      "previous_sibling": "node_8_1587691734281"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{readStep,6"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1587689303888",
+      "context": {
+        "step": 6
+      },
+      "conditions": "@OrdinalNumber:seventh",
+      "dialog_node": "node_8_1587691902453",
+      "previous_sibling": "node_3_1587691852660"
+    },
+    {
+      "type": "standard",
+      "title": "Read Step second",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{readStep,1"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1587689303888",
+      "context": {
+        "step": 1
+      },
+      "conditions": "@OrdinalNumber:second",
+      "dialog_node": "node_4_1587691590487",
+      "previous_sibling": "node_5_1587691538124"
+    },
+    {
+      "type": "standard",
+      "title": "Read Step first",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{readStep,0"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1587689303888",
+      "context": {
+        "step": 0
+      },
+      "conditions": "@OrdinalNumber:first",
+      "dialog_node": "node_5_1587691538124",
+      "previous_sibling": "node_8_1587691277253"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{readStep,8"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1587689303888",
+      "context": {
+        "step": 8
+      },
+      "conditions": "@OrdinalNumber:ninth",
+      "dialog_node": "node_10_1587691907420",
+      "previous_sibling": "node_6_1587691904698"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{readStep,7"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1587689303888",
+      "context": {
+        "step": 7
+      },
+      "conditions": "@OrdinalNumber:eighth",
+      "dialog_node": "node_6_1587691904698",
+      "previous_sibling": "node_8_1587691902453"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{readStep,9"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1587689303888",
+      "context": {
+        "step": 9
+      },
+      "conditions": "@OrdinalNumber:tenth",
+      "dialog_node": "node_1_1587692032439",
+      "previous_sibling": "node_10_1587691907420"
+    },
+    {
+      "type": "standard",
+      "title": "Read Step third",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{readStep,2"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1587689303888",
+      "context": {
+        "step": 2
+      },
+      "conditions": "@OrdinalNumber:third",
+      "dialog_node": "node_8_1587691709456",
+      "previous_sibling": "node_4_1587691590487"
+    },
+    {
+      "type": "standard",
+      "title": "Read Step n sys-number",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{readStep,$step"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1587689303888",
+      "context": {
+        "step": "<? @sys-number.numeric_value - 1?>"
+      },
+      "conditions": "@sys-number",
+      "dialog_node": "node_8_1587691277253"
+    },
+    {
+      "type": "standard",
+      "title": "Correct step",
+      "context": {
+        "step": "<? T(Math).max($step - 1.0, 0.0) ?>"
+      },
+      "conditions": "#decrement_step",
+      "dialog_node": "node_2_1586385094101",
+      "previous_sibling": "node_3_1587656645259"
+    },
+    {
+      "type": "standard",
+      "title": "Specific ingredient quantity",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{checkIngredients,$ingredient_list"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ingredient_list": "<? @Ingredients.values.join(',') ?>"
+      },
+      "conditions": "#Ingredient_Quantity",
+      "dialog_node": "node_8_1580858869288",
+      "previous_sibling": "node_3_1580859485085"
+    },
     {
       "type": "standard",
       "title": "Anything else",
@@ -484,10 +1033,22 @@
               },
               {
                 "text": "I didn't get your meaning."
+              },
+              {
+                "text": "Sorry, all I know how to do is make recipes."
+              },
+              {
+                "text": "You could try asking my friend Siri for help"
+              },
+              {
+                "text": "Unfortunately my creators haven't given me the ability to respond to that yet."
+              },
+              {
+                "text": "Hmm... I don't know. Hey Siri, <? input.text ?>"
               }
             ],
             "response_type": "text",
-            "selection_policy": "sequential"
+            "selection_policy": "random"
           }
         ]
       },
@@ -498,19 +1059,193 @@
     },
     {
       "type": "standard",
-      "title": "First Step",
+      "title": "Previous Step",
+      "output": {
+        "text": {
+          "values": [
+            "{{readStep,$step"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "context": {
+        "step": "<? T(Math).max($step - 1.0, 0.0) ?>"
+      },
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "conditions": "#previous_step",
+      "dialog_node": "node_9_1580856526446",
+      "previous_sibling": "node_5_1580858468711"
+    },
+    {
+      "type": "standard",
+      "title": "Check for single ingredient",
       "output": {
         "generic": [
           {
-            "values": [],
+            "values": [
+              {
+                "text": "{{checkIngredients,$ingredient_list"
+              }
+            ],
             "response_type": "text",
             "selection_policy": "sequential"
           }
         ]
       },
-      "conditions": "#first_step",
-      "dialog_node": "node_9_1580856526446",
+      "context": {
+        "ingredient_list": "<? @Ingredients.values.join(',') ?>"
+      },
+      "conditions": "#single_ingredient",
+      "dialog_node": "node_3_1580859485085",
+      "previous_sibling": "node_4_1581030659665"
+    },
+    {
+      "type": "standard",
+      "title": "Set Timer",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{timerSet,$timer"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "timer": "<?@sys-time?>"
+      },
+      "conditions": "#set_a_timer && @sys-time != NULL",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_8_1582843130752",
       "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Ingredients needed",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{getIngredients,"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#ingredients",
+      "dialog_node": "node_5_1580858803381",
+      "previous_sibling": "node_8_1580858869288"
+    },
+    {
+      "type": "standard",
+      "title": "Timer Request",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{timerRequest,<?input.text?>"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#set_a_timer",
+      "dialog_node": "node_3_1587656645259",
+      "previous_sibling": "node_8_1582843130752"
+    },
+    {
+      "type": "standard",
+      "title": "Get Timer",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{getTimeLeft,$timer"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#get_timer",
+      "dialog_node": "node_4_1581030659665",
+      "previous_sibling": "node_2_1586385094101"
+    },
+    {
+      "type": "standard",
+      "title": "Read Step n",
+      "output": {
+        "generic": []
+      },
+      "context": {},
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "#read_step_n && @sys-number != null || #read_step_n && @OrdinalNumber",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_5_1587689303888",
+      "previous_sibling": "node_5_1580858803381"
+    },
+    {
+      "type": "standard",
+      "title": "Read Step",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{readStep,$step"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {},
+      "conditions": "#current_step",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_4_1580857960953",
+      "previous_sibling": "node_5_1587689303888"
+    },
+    {
+      "type": "standard",
+      "title": "Next Step",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "{{readStep,$step"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "context": {
+        "step": "<? $step + 1.0?>"
+      },
+      "conditions": "#next_step",
+      "dialog_node": "node_5_1580858468711",
+      "previous_sibling": "node_4_1580857960953"
     },
     {
       "type": "standard",
@@ -520,19 +1255,36 @@
           {
             "values": [
               {
-                "text": "Hello. How can I help you?"
+                "text": "Hi, I'm Chef. I can help you cook by answering any questions you have."
+              },
+              {
+                "text": "Hello, I'm Chef. I can help you cook recipes. Is there anything you need help with?"
+              },
+              {
+                "text": "Hi, I'm Chef. A virtual assistant made by Executive Chef. How can I help you?"
+              },
+              {
+                "text": "Let's get cooking! What can I help you with?"
               }
             ],
             "response_type": "text",
-            "selection_policy": "sequential"
+            "selection_policy": "random"
           }
         ]
+      },
+      "context": {
+        "step": 0,
+        "timer": 0
       },
       "conditions": "welcome",
       "dialog_node": "Welcome"
     }
   ],
-  "counterexamples": [],
+  "counterexamples": [
+    {
+      "text": "Chef, how's it going?"
+    }
+  ],
   "system_settings": {
     "off_topic": {
       "enabled": true
@@ -543,6 +1295,9 @@
       "randomize": true,
       "max_suggestions": 5,
       "suggestion_text_policy": "title"
+    },
+    "system_entities": {
+      "enabled": true
     },
     "human_agent_assist": {
       "prompt": "Did you mean:"
